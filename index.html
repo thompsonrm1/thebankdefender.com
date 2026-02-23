@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bank Defender | Reclaiming Local Capital</title>
+    <title>Bank Defender | Reclaiming Local Capital</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #004a99; --dark: #0a0f18; --white: #ffffff; --gray: #64748b; }
+        :root { --primary: #004a99; --dark: #0a0f18; --white: #ffffff; --accent: #e2e8f0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--dark); background: #f8fafc; line-height: 1.6; }
 
-        /* Hero Section with Nashville Batman Building */
         header {
-            height: 85vh;
+            height: 80vh;
             background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.8)), 
-                        url('./nashville.jpg'); /* Ensure your file is named nashville.jpg */
+                        url('./nashville.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -25,87 +24,67 @@
             padding: 0 20px;
         }
 
-        .hero-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; }
-        .hero-content p { font-size: 1.4rem; font-weight: 300; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+        .hero-content h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -1px; }
+        .hero-content p { font-size: 1.3rem; max-width: 850px; margin: 0 auto; opacity: 0.9; font-weight: 300; }
 
         section { padding: 80px 10%; max-width: 1200px; margin: 0 auto; }
         h2 { color: var(--primary); font-size: 2rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Professional Content Boxes */
         .mission-card { background: white; padding: 50px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: -100px; position: relative; z-index: 10; border-top: 6px solid var(--primary); }
         
-        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; margin-top: 60px; }
-        .founder-img { width: 100%; border-radius: 8px; box-shadow: 20px 20px 0px rgba(0, 74, 153, 0.1); border: 1px solid #ddd; }
+        .founder-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; margin-top: 40px; }
+        .founder-img { width: 100%; border-radius: 8px; box-shadow: 15px 15px 0px var(--primary); }
 
-        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
-        .stat-item { background: #f1f5f9; padding: 30px; border-radius: 8px; text-align: center; }
-        .stat-item h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 10px; }
-
-        /* Contact Section */
-        .contact-section { background: var(--dark); color: white; padding: 80px 10%; border-radius: 12px; margin-bottom: 60px; }
+        .contact-wrap { background: var(--dark); color: white; padding: 60px; border-radius: 12px; margin-top: 40px; }
         .form-input { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 4px; border: 1px solid #333; background: #1a202c; color: white; }
-        .btn-prime { background: var(--primary); color: white; padding: 20px; width: 100%; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1.1rem; }
-        .btn-prime:hover { background: #003d80; }
+        .btn-submit { background: var(--primary); color: white; padding: 20px; width: 100%; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; transition: 0.3s; }
 
-        footer { text-align: center; padding: 40px; font-size: 0.9rem; color: var(--gray); }
+        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #64748b; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="hero-content">
-            <h1>The Bank Defender</h1>
-            <p>Empowering Local Banks to Reclaim Interchange Revenue and Reinvest in Their Communities.</p>
+            <h1>Bank Defender</h1>
+            <p>Institutional Integrity. Local Impact. Powered by Big Tech Architecture.</p>
         </div>
     </header>
 
     <main>
         <section>
             <div class="mission-card">
-                <h2>Our Mission</h2>
-                <p>The Bank Defender was founded to stop the "Invisible Leak." Every day, local capital leaves community banks and flows to out-of-state giants. Our mission is to provide regional financial institutions with the <strong>Agentic AI "Sidecar"</strong> technology needed to identify leakage in real-time and incentivize members to keep their spending local. We don't just protect data; we defend the local economy.</p>
-                
-                <div class="stat-grid">
-                    <div class="stat-item">
-                        <h3>Identify</h3>
-                        <p>Detect competitive card usage within your own transaction data.</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>Reclaim</h3>
-                        <p>Redirect interchange revenue back to the local institution.</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>Reinvest</h3>
-                        <p>Fund local growth through recovered capital and deeper loyalty.</p>
-                    </div>
-                </div>
+                <h2>The Mission</h2>
+                <p><strong>Bank Defender</strong> was built to solve the "Nashville Leakage." Every year, millions in interchange revenue flow out of local banks to out-of-state giants. We provide community banks with the <strong>Agentic AI Sidecar</strong> tools needed to identify this leakage and redirect capital back into the local economy. We help you invest in your community by keeping every "swipe" where it belongs: home.</p>
             </div>
 
-            <div class="about-grid" id="about">
-                <img src="./founder.jpg" alt="Founder of The Bank Defender" class="founder-img">
+            <div class="founder-grid" id="about">
+                <img src="./founder.jpg" alt="Matt Thompson - Founder" class="founder-img">
                 <div>
-                    <h2>The "Nexus" Vision</h2>
-                    <p>Based in Nashville, TN, The Bank Defender is led by a former Google Cloud Sales Manager with a vision to bring "Big Tech" defensive architecture to the local level. We believe that community banks are the nexus point for local creators and small businesses. Our infrastructure is built on the 2026 Google Financial Services Framework, ensuring that your bank stays at the cutting edge of security and community impact.</p>
+                    <h2>Meet the Founder: Matt Thompson</h2>
+                    <p>Raised in <strong>Morristown, TN</strong>, Matt learned early on that a community is only as strong as its local support systems. His career in finance began at the ground floor, working as a <strong>Bank Teller for Citizens Bank</strong> in Johnson City while in college. He saw firsthand the vital role local banks play in the lives of their customers.</p>
+                    <br>
+                    <p>Since 2019, Matt has called Nashville home, bringing <strong>7 years of Cloud Technology experience</strong> to the table. Having managed enterprise architecture within the Google Cloud ecosystem, Matt currently drives strategy for a Google Cloud Premier Partner. He bridges the gap between breaking-edge tech and community values—helping regional banks scale with the same "Big Tech" logic used by the world's largest financial institutions.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <div class="contact-section">
+            <div class="contact-wrap">
                 <h2 style="color: white; text-align: center;">Request a 30-Day Revenue Diagnostic</h2>
-                <p style="text-align: center; margin-bottom: 40px; opacity: 0.8;">Quantify your bank's interchange leakage and see the Revenue Recovery Map.</p>
+                <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Quantify your bank's interchange leakage with our Google-grade AI audit.</p>
                 <form action="https://formspree.io/f/YOUR_ID" method="POST">
-                    <input type="text" name="institution" placeholder="Financial Institution Name" class="form-input" required>
-                    <input type="email" name="email" placeholder="Professional Email (name@bank.com)" class="form-input" required>
-                    <textarea name="message" rows="4" placeholder="Briefly describe your current mobile core or goals..." class="form-input"></textarea>
-                    <button type="submit" class="btn-prime">Initialize Diagnostic Inquiry</button>
+                    <input type="text" name="name" placeholder="Contact Name" class="form-input" required>
+                    <input type="text" name="bank" placeholder="Financial Institution" class="form-input" required>
+                    <input type="email" name="email" placeholder="Professional Email" class="form-input" required>
+                    <button type="submit" class="btn-submit">Initialize Diagnostic</button>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-        &copy; 2026 THE BANK DEFENDER | NASHVILLE, TN | SECURE B2B FINTECH
+        &copy; 2026 BANK DEFENDER | NASHVILLE, TN
     </footer>
 
 </body>
