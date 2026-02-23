@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>The Bank Defender | B2B Fintech Security</title>
+    
+    <meta name="description" content="The Bank Defender provides enterprise-grade security and B2B infrastructure for regional and community banks.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #004a99; /* Institutional Blue */
+            --dark: #0a0f18;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --accent: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
+
+        /* Hero with Nashville Overlay */
+        header {
+            height: 70vh;
+            background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.8)), 
+                        url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9; font-weight: 300; }
+
+        section { padding: 100px 10%; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Mission Styling */
+        .mission-box { background: var(--white); padding: 50px; border-radius: 4px; border-left: 5px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: -80px; }
+
+        /* Founder Section */
+        .founder-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
+        .founder-img { width: 100%; border-radius: 4px; box-shadow: 10px 10px 0px var(--primary); }
+
+        /* Professional Contact Form */
+        .contact-wrap { background: var(--dark); color: var(--white); padding: 60px; border-radius: 8px; }
+        .form-input { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #333; background: #1a202c; color: white; border-radius: 4px; }
+        .btn-submit { background: var(--primary); color: white; padding: 18px; border: none; width: 100%; font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .btn-submit:hover { background: #0056b3; }
+
+        footer { text-align: center; padding: 50px; font-size: 0.8rem; color: #94a3b8; border-top: 1px solid var(--accent); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>The Bank Defender</h1>
+            <p>Institutional Integrity. Enterprise Resilience. B2B Excellence.</p>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="mission-box">
+                <h2>Our Mission</h2>
+                <p>At <strong>The Bank Defender</strong>, we recognize that the stability of the financial ecosystem depends on the resilience of its institutions. We provide the strategic moat required for regional and community banks to navigate the complexities of modern fintech. Our mission is to safeguard the trust between banks and their communities through superior B2B infrastructure and uncompromising security standards.</p>
+            </div>
+        </section>
+
+        <section id="founder">
+            <div class="founder-grid">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=500" alt="Founder of The Bank Defender" class="founder-img">
+                <div>
+                    <h2>Founding Vision</h2>
+                    <p>Headquartered in Nashville, Tennessee, The Bank Defender was established at the nexus of traditional banking values and next-generation technological capability. Our founder recognized that while the digital landscape is evolving, the core mandate of banking remains the same: the preservation of trust. We are dedicated to building the tools that allow local banks to lead the future of finance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-wrap">
+                <h2 style="color: white; text-align: center;">Inquiry Gateway</h2>
+                <p style="text-align: center; margin-bottom: 30px; opacity: 0.7;">Secure communication channel for institutional partners.</p>
+                <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                    <input type="text" name="institution" class="form-input" placeholder="Institution Name" required>
+                    <input type="email" name="email" class="form-input" placeholder="Official Bank Email" required>
+                    <textarea name="message" class="form-input" rows="5" placeholder="Operational Requirements / Inquiry Details"></textarea>
+                    <button type="submit" class="btn-submit">Initialize Consultation</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 THE BANK DEFENDER | NASHVILLE, TN | B2B FINANCIAL INFRASTRUCTURE
+    </footer>
+
+</body>
+</html>
