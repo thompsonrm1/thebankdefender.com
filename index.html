@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank Defender | Reclaiming Local Capital</title>
+    <title>Bank Defender | Reclaiming Regional Capital</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #004a99; --dark: #0a0f18; --white: #ffffff; --accent: #e2e8f0; }
@@ -11,7 +11,7 @@
         body { font-family: 'Inter', sans-serif; color: var(--dark); background: #f8fafc; line-height: 1.6; }
 
         header {
-            height: 80vh;
+            height: 75vh;
             background: linear-gradient(rgba(10, 15, 24, 0.8), rgba(10, 15, 24, 0.8)), 
                         url('./nashville.jpg');
             background-size: cover;
@@ -24,8 +24,8 @@
             padding: 0 20px;
         }
 
-        .hero-content h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -1px; }
-        .hero-content p { font-size: 1.3rem; max-width: 850px; margin: 0 auto; opacity: 0.9; font-weight: 300; }
+        .hero-content h1 { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.3rem; max-width: 900px; margin: 0 auto; opacity: 0.9; font-weight: 300; }
 
         section { padding: 80px 10%; max-width: 1200px; margin: 0 auto; }
         h2 { color: var(--primary); font-size: 2rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -34,6 +34,10 @@
         
         .founder-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; margin-top: 40px; }
         .founder-img { width: 100%; border-radius: 8px; box-shadow: 15px 15px 0px var(--primary); }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .service-item { background: #fff; padding: 30px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .service-item h3 { color: var(--primary); margin-bottom: 15px; }
 
         .contact-wrap { background: var(--dark); color: white; padding: 60px; border-radius: 12px; margin-top: 40px; }
         .form-input { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 4px; border: 1px solid #333; background: #1a202c; color: white; }
@@ -47,44 +51,59 @@
     <header>
         <div class="hero-content">
             <h1>Bank Defender</h1>
-            <p>Institutional Integrity. Local Impact. Powered by Big Tech Architecture.</p>
+            <p>Reclaiming Regional Capital. Defending Community Banks Nationwide.</p>
         </div>
     </header>
 
     <main>
         <section>
             <div class="mission-card">
-                <h2>The Mission</h2>
-                <p><strong>Bank Defender</strong> was built to solve the "Nashville Leakage." Every year, millions in interchange revenue flow out of local banks to out-of-state giants. We provide community banks with the <strong>Agentic AI Sidecar</strong> tools needed to identify this leakage and redirect capital back into the local economy. We help you invest in your community by keeping every "swipe" where it belongs: home.</p>
+                <h2>The National Challenge</h2>
+                <p>Interchange leakage is a systemic threat to the community banking model. Every year, billions in revenue flow from regional institutions to out-of-state giants. <strong>Bank Defender</strong> is launching to provide the <strong>Agentic AI Sidecar</strong> infrastructure needed to identify this flight in real-time and help banks provide their members with a compelling reason to keep their capital home.</p>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>Market Agnostic</h3>
+                    <p>While we are <strong>starting in Nashville</strong>, our AI stack is architected to scale across any geographic landscape—securing local economies nationwide.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Revenue Defense</h3>
+                    <p>We quantify the exact dollar amount of leakage, providing a data-backed roadmap for institutional capital recovery.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Community Impact</h3>
+                    <p>By capturing lost revenue, regional banks can fund the local creators and small businesses that drive the "American Dream."</p>
+                </div>
             </div>
 
             <div class="founder-grid" id="about">
                 <img src="./founder.jpg" alt="Matt Thompson - Founder" class="founder-img">
                 <div>
-                    <h2>Meet the Founder: Matt Thompson</h2>
-                    <p>Raised in <strong>Morristown, TN</strong>, Matt learned early on that a community is only as strong as its local support systems. His career in finance began at the ground floor, working as a <strong>Bank Teller for Citizens Bank</strong> in Johnson City while in college. He saw firsthand the vital role local banks play in the lives of their customers.</p>
+                    <h2>Founding Vision: Matt Thompson</h2>
+                    <p>Matt Thompson’s journey in finance began as a <strong>Bank Teller for Citizens Bank</strong> in East Tennessee. He saw firsthand that a community’s strength is tied to the health of its local bank. Today, Matt is bringing <strong>7 years of Cloud Technology experience</strong>—including deep roots in the Google Cloud ecosystem—to solve the "Big Leak" for regional banks.</p>
                     <br>
-                    <p>Since 2019, Matt has called Nashville home, bringing <strong>7 years of Cloud Technology experience</strong> to the table. Having managed enterprise architecture within the Google Cloud ecosystem, Matt currently drives strategy for a Google Cloud Premier Partner. He bridges the gap between breaking-edge tech and community values—helping regional banks scale with the same "Big Tech" logic used by the world's largest financial institutions.</p>
+                    <p>Based in Nashville, Matt is looking for visionary banking partners to join the Bank Defender pilot. We are bridging the gap between elite enterprise architecture and the vital community values that define American banking. Our goal is to ensure that wherever a bank serves, their capital stays within the community it supports.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact">
             <div class="contact-wrap">
-                <h2 style="color: white; text-align: center;">Request a 30-Day Revenue Diagnostic</h2>
-                <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Quantify your bank's interchange leakage with our Google-grade AI audit.</p>
+                <h2 style="color: white; text-align: center;">Join the Phase 1 Diagnostic</h2>
+                <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Be the first in your region to quantify and reclaim lost interchange revenue.</p>
                 <form action="https://formspree.io/f/YOUR_ID" method="POST">
                     <input type="text" name="name" placeholder="Contact Name" class="form-input" required>
                     <input type="text" name="bank" placeholder="Financial Institution" class="form-input" required>
                     <input type="email" name="email" placeholder="Professional Email" class="form-input" required>
-                    <button type="submit" class="btn-submit">Initialize Diagnostic</button>
+                    <button type="submit" class="btn-submit">Initialize Diagnostic Inquiry</button>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-        &copy; 2026 BANK DEFENDER | NASHVILLE, TN
+        &copy; 2026 BANK DEFENDER | B2B FINTECH INFRASTRUCTURE | NASHVILLE, TN
     </footer>
 
 </body>
