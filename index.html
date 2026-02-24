@@ -93,10 +93,29 @@
                 <h2 style="color: white; text-align: center;">Join the Phase 1 Diagnostic</h2>
                 <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Be the first in your region to quantify and reclaim lost interchange revenue.</p>
                 <form action="https://formspree.io/f/xreareww" method="POST">
-                    <input type="text" name="name" placeholder="Contact Name" class="form-input" required>
-                    <input type="text" name="bank" placeholder="Financial Institution" class="form-input" required>
-                    <input type="email" name="email" placeholder="Professional Email" class="form-input" required>
-                    <button type="submit" class="btn-submit">Initialize Diagnostic Inquiry</button>
+                    <input type="text" name="first_name" placeholder="First Name" class="form-input" required>
+<input type="text" name="last_name" placeholder="Last Name" class="form-input" required>
+<input type="email" name="email" placeholder="Professional Email" class="form-input" required>
+<input type="tel" name="phone" placeholder="Phone Number (Optional)" class="form-input">
+<input type="text" name="title" placeholder="Job Title" class="form-input" required>
+<input type="text" name="institution_name" placeholder="Financial Institution Name" class="form-input" required>
+<input type="text" name="address" placeholder="Institution Address (City, State)" class="form-input" required>
+
+<select name="primary_focus" class="form-input" style="background-color: white;" required>
+    <option value="" disabled selected>Select Primary Objective...</option>
+    <option value="leakage">Recapturing Revenue from Mega-Banks</option>
+    <option value="retention">Boosting Retention via Local Capital</option>
+    <option value="acquisition">Capturing New High-Value Customers</option>
+</select>
+
+<select name="referral_source" class="form-input" style="background-color: white;">
+    <option value="" disabled selected>How did you hear about us?</option>
+    <option value="linkedin">LinkedIn</option>
+    <option value="referral">Professional Referral</option>
+    <option value="event">Nashville Tech/Banking Event</option>
+</select>
+
+<button type="submit" class="btn-submit">Submit Recovery Request</button>
                 </form>
             </div>
         </section>
