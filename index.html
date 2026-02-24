@@ -93,13 +93,55 @@
                 <h2 style="color: white; text-align: center;">Join the Phase 1 Diagnostic</h2>
                 <p style="text-align: center; margin-bottom: 30px; opacity: 0.8;">Be the first in your region to quantify and reclaim lost interchange revenue.</p>
                 <form action="https://formspree.io/f/xreareww" method="POST">
-                    <input type="text" name="first_name" placeholder="First Name" class="form-input" required>
-<input type="text" name="last_name" placeholder="Last Name" class="form-input" required>
-<input type="email" name="email" placeholder="Professional Email" class="form-input" required>
-<input type="tel" name="phone" placeholder="Phone Number (Optional)" class="form-input">
-<input type="text" name="title" placeholder="Job Title" class="form-input" required>
-<input type="text" name="institution_name" placeholder="Financial Institution Name" class="form-input" required>
-<input type="text" name="address" placeholder="Institution Address (City, State)" class="form-input" required>
+  
+  <h3 style="color: #002147; margin-top: 20px;">Professional Identity</h3>
+  <div style="display: flex; gap: 10px;">
+    <input type="text" name="first_name" placeholder="First Name" class="form-input" style="width: 50%;" required>
+    <input type="text" name="last_name" placeholder="Last Name" class="form-input" style="width: 50%;" required>
+  </div>
+  <input type="email" name="email" placeholder="Professional Email (name@bank.com)" class="form-input" required>
+  <input type="tel" name="phone" placeholder="Phone Number (Optional)" class="form-input">
+  <input type="text" name="title" placeholder="Job Title" class="form-input" required>
+  <input type="text" name="institution_name" placeholder="Financial Institution Name" class="form-input" required>
+  <input type="text" name="address" placeholder="Institution Address (City, State)" class="form-input" required>
+
+  <h3 style="color: #002147; margin-top: 20px;">Primary Focus (Select all that apply)</h3>
+  <div style="text-align: left; background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+    <label style="display: block; margin-bottom: 8px; color: #333;">
+      <input type="checkbox" name="focus_leakage" value="Yes"> Recapturing Revenue from Mega-Banks
+    </label>
+    <label style="display: block; margin-bottom: 8px; color: #333;">
+      <input type="checkbox" name="focus_retention" value="Yes"> Boosting Retention via Local Capital
+    </label>
+    <label style="display: block; margin-bottom: 8px; color: #333;">
+      <input type="checkbox" name="focus_acquisition" value="Yes"> Capturing New High-Value Customers
+    </label>
+    <label style="display: block; margin-bottom: 8px; color: #333;">
+      <input type="checkbox" name="focus_modernization" value="Yes"> Modernizing for 2026 Compliance & AI
+    </label>
+  </div>
+
+  <label style="display: block; text-align: left; font-weight: bold; color: #002147;">Primary Interchange Competitor</label>
+  <select name="biggest_competitor" class="form-input" style="background-color: #ffffff !important; color: #000000 !important; -webkit-appearance: menulist; height: 45px; width: 100%; margin-bottom: 15px;" required>
+    <option value="" disabled selected>Who is your biggest leakage threat?</option>
+    <option value="Chase">Chase</option>
+    <option value="AMEX">AMEX</option>
+    <option value="Citi Group">Citi Group</option>
+    <option value="Capital One">Capital One</option>
+    <option value="Bank of America">Bank of America</option>
+  </select>
+
+  <label style="display: block; text-align: left; font-weight: bold; color: #002147;">How did you hear about us?</label>
+  <select name="referral_source" class="form-input" style="background-color: #ffffff !important; color: #000000 !important; -webkit-appearance: menulist; height: 45px; width: 100%; margin-bottom: 15px;" required>
+    <option value="" disabled selected>Select Source...</option>
+    <option value="Referral">Professional Referral</option>
+    <option value="Direct Outreach">Direct Outreach</option>
+    <option value="Event">Nashville Tech/Banking Event</option>
+    <option value="Google Search">Google Search</option>
+  </select>
+
+  <button type="submit" class="btn-submit" style="width: 100%; padding: 15px; font-weight: bold;">Initialize Diagnostic Inquiry</button>
+</form>
 
 <select name="primary_focus" class="form-input" style="background-color: white;" required>
     <option value="" disabled selected>Select Primary Objective...</option>
