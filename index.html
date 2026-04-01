@@ -19,7 +19,7 @@
 
         header {
             height: 90vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), 
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
                         url('./nashville.jpg');
             background-size: cover;
             background-position: center;
@@ -28,6 +28,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
         }
 
         .hero-content h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -2px; }
@@ -48,7 +49,7 @@
             border-top: 8px solid var(--primary);
         }
 
-        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; }
+        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--white); }
         .accent-text { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
 
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
@@ -85,7 +86,6 @@
             .hero-content h1 { font-size: 2.8rem; }
             .founder-grid { grid-template-columns: 1fr; }
             .mission-card { padding: 30px; }
-            .hero-content img { height: 250px !important; } /* Scales logo for mobile */
         }
     </style>
 </head>
@@ -93,4 +93,58 @@
 
     <header>
         <div class="hero-content">
-            <img src="./Logo.png?v=5" alt="Bank Defender Logo" style="height: 420px; width: auto; margin-bottom: 3
+            <img src="./Logo.png?v=7" alt="Bank Defender Logo" style="height: 420px; width: auto; margin-bottom: 30px; object-fit: contain; mix-blend-mode: lighten;">
+            
+            <span class="accent-text">Engineered in Nashville</span>
+            <h1>Bank <span>Defender</span></h1>
+            <p>Defending the Balance Sheet. Reclaiming Regional Assets from National Giants.</p>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="mission-card">
+                <span class="accent-text">The Institutional Mandate</span>
+                <h2>Defending the "Whale"</h2>
+                <p>Your highest-value clients keep their deposits in your vault, but send their most profitable activities—<strong>mortgages, auto loans, and interchange fees</strong>—to Wall Street. Bank Defender provides the <strong>Institutional Intelligence</strong> needed to identify these outflows in real-time and provide a surgical, data-backed reason for your members to bring their capital home.</p>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>The Leakage Radar</h3>
+                    <p>Powered by <strong>Plaid + BigQuery</strong>. We alert your team the moment a HNW client triggers a $4,000+ mortgage payment or refinance check to a national competitor.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Precision Incentives</h3>
+                    <p>Geofenced, automated rewards at Nashville landmarks. We make national "points" programs mathematically irrational for local leaders.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Sovereign Infrastructure</h3>
+                    <p>Built on <strong>Google Cloud</strong>. Every partner receives an isolated, hardened GCP Project. Zero-friction core integration.</p>
+                </div>
+            </div>
+
+            <div class="founder-grid" id="about">
+                <img src="./founder.jpg" alt="Matt Thompson - Founder" class="founder-img">
+                <div>
+                    <span class="accent-text">The Founder</span>
+                    <h2>Founding Vision: Matt Thompson</h2>
+                    <p>Matt Thompson’s perspective was forged as a <strong>Bank Teller for Citizens Bank</strong>. He saw that a community’s health is directly tied to the health of its local bank's balance sheet.</p>
+                    <br>
+                    <p>Today, Matt leverages <strong>7 years of Google Cloud Expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-wrap">
+                <h2 style="text-align: center; color: white;">Join the Phase 1 Diagnostic</h2>
+                <p style="text-align: center; margin-bottom: 40px; color: var(--text-muted);">Quantify your leakage. Protect your Whale portfolio. Reclaim your region.</p>
+                
+                <form action="https://formspree.io/f/xreareww" method="POST">
+                    <div style="display: flex; gap: 15px;">
+                        <input type="text" name="first_name" placeholder="First Name" class="form-input" required>
+                        <input type="text" name="last_name" placeholder="Last Name" class="form-input" required>
+                    </div>
+                    <input type="email" name="email" placeholder="Professional Email" class="form-input" required>
+                    <input type="text" name="title" placeholder
