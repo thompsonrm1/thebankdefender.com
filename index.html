@@ -18,8 +18,8 @@
         body { font-family: 'Inter', sans-serif; color: var(--white); background: #020617; line-height: 1.6; }
 
         header {
-            height: 90vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
+            height: 85vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), 
                         url('./nashville.jpg');
             background-size: cover;
             background-position: center;
@@ -28,7 +28,6 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
         }
 
         .hero-content h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -2px; }
@@ -49,7 +48,7 @@
             border-top: 8px solid var(--primary);
         }
 
-        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--white); }
+        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; }
         .accent-text { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
 
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
@@ -93,7 +92,7 @@
 
     <header>
         <div class="hero-content">
-            <img src="./Logo.png?v=7" alt="Bank Defender Logo" style="height: 420px; width: auto; margin-bottom: 30px; object-fit: contain; mix-blend-mode: lighten;">
+            <img src="./Logo.png" alt="Bank Defender Logo" style="height: 140px; width: auto; margin-bottom: 25px; object-fit: contain;">
             
             <span class="accent-text">Engineered in Nashville</span>
             <h1>Bank <span>Defender</span></h1>
@@ -112,15 +111,15 @@
             <div class="service-grid">
                 <div class="service-item">
                     <h3>The Leakage Radar</h3>
-                    <p>Powered by <strong>Plaid + BigQuery</strong>. We alert your team the moment a HNW client triggers a $4,000+ mortgage payment or refinance check to a national competitor.</p>
+                    <p>Powered by <strong>Plaid + BigQuery</strong>. We alert your team the moment a HNW client triggers a $4,000+ mortgage payment or refinance check to a national competitor. See the signal before the capital leaves the state.</p>
                 </div>
                 <div class="service-item">
                     <h3>Precision Incentives</h3>
-                    <p>Geofenced, automated rewards at Nashville landmarks. We make national "points" programs mathematically irrational for local leaders.</p>
+                    <p>Geofenced, automated rewards at Nashville landmarks like <strong>Kayne Prime</strong>. We make national "points" programs mathematically irrational for local leaders, winning the notification tray every time.</p>
                 </div>
                 <div class="service-item">
                     <h3>Sovereign Infrastructure</h3>
-                    <p>Built on <strong>Google Cloud</strong>. Every partner receives an isolated, hardened GCP Project. Zero-friction core integration.</p>
+                    <p>Built on <strong>Google Cloud</strong>. Every partner receives an isolated, hardened GCP Project. No data co-mingling. Zero-friction core integration for institutions with 1 branch or 90.</p>
                 </div>
             </div>
 
@@ -131,20 +130,71 @@
                     <h2>Founding Vision: Matt Thompson</h2>
                     <p>Matt Thompson’s perspective was forged as a <strong>Bank Teller for Citizens Bank</strong>. He saw that a community’s health is directly tied to the health of its local bank's balance sheet.</p>
                     <br>
-                    <p>Today, Matt leverages <strong>7 years of Google Cloud Expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking.</p>
+                    <p>Today, Matt leverages <strong>7 years of Google Cloud Expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking. Based in Nashville, he is architecting the "Moat" that allows regional institutions to protect their NIM and thrive against trillion-dollar competitors.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact">
             <div class="contact-wrap">
-                <h2 style="text-align: center; color: white;">Join the Phase 1 Diagnostic</h2>
+                <h2 style="text-align: center;">Request an Institutional Audit</h2>
                 <p style="text-align: center; margin-bottom: 40px; color: var(--text-muted);">Quantify your leakage. Protect your Whale portfolio. Reclaim your region.</p>
                 
                 <form action="https://formspree.io/f/xreareww" method="POST">
+                    
+                    <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--primary);">Professional Identity</h3>
                     <div style="display: flex; gap: 15px;">
                         <input type="text" name="first_name" placeholder="First Name" class="form-input" required>
                         <input type="text" name="last_name" placeholder="Last Name" class="form-input" required>
                     </div>
                     <input type="email" name="email" placeholder="Professional Email" class="form-input" required>
-                    <input type="text" name="title" placeholder
+                    <input type="tel" name="phone" placeholder="Phone Number (Optional)" class="form-input">
+                    <input type="text" name="title" placeholder="Job Title (e.g. CFO, Head of Retail)" class="form-input" required>
+                    <input type="text" name="institution_name" placeholder="Financial Institution Name" class="form-input" required>
+                    <input type="text" name="address" placeholder="HQ City, State" class="form-input" required>
+
+                    <h3 style="margin: 20px 0 15px; font-size: 1.1rem; color: var(--primary);">Asset Defense Focus</h3>
+                    <div style="text-align: left; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);">
+                        <label style="display: block; margin-bottom: 12px; cursor: pointer;">
+                            <input type="checkbox" name="focus_leakage" value="Yes" style="margin-right: 10px;"> Recapturing Mortgage & Auto Loan Assets
+                        </label>
+                        <label style="display: block; margin-bottom: 12px; cursor: pointer;">
+                            <input type="checkbox" name="focus_retention" value="Yes" style="margin-right: 10px;"> Defending NIM on HNW "Whale" Portfolios
+                        </label>
+                        <label style="display: block; cursor: pointer;">
+                            <input type="checkbox" name="focus_acquisition" value="Yes" style="margin-right: 10px;"> Replacing National Points with Local Precision
+                        </label>
+                    </div>
+
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Primary Competitive Threat</label>
+                    <select name="biggest_competitor" class="form-input" style="background-color: #0f172a; cursor: pointer;" required>
+                        <option value="" disabled selected>Select primary leakage threat...</option>
+                        <option value="Chase">Chase</option>
+                        <option value="AMEX">AMEX</option>
+                        <option value="Citi Group">Citi Group</option>
+                        <option value="Capital One">Capital One</option>
+                        <option value="Bank of America">Bank of America</option>
+                    </select>
+
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">Discovery Source</label>
+                    <select name="referral_source" class="form-input" style="background-color: #0f172a; cursor: pointer;" required>
+                        <option value="" disabled selected>How did you hear about the Moat?</option>
+                        <option value="Referral">Professional Referral</option>
+                        <option value="Direct Outreach">Direct Outreach</option>
+                        <option value="LinkedIn">LinkedIn Strategy Drop</option>
+                        <option value="Event">Nashville Banking Event</option>
+                    </select>
+
+                    <button type="submit" class="btn-submit">Submit Audit Inquiry</button>
+
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 BANK DEFENDER | INSTITUTIONAL ASSET PROTECTION | ENGINEERED IN NASHVILLE, TN
+    </footer>
+
+</body>
+</html>
