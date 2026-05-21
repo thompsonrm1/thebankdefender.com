@@ -22,11 +22,11 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
-        header h1 { margin: 0; font-size: 2.3rem; letter-spacing: 1px; }
-        header p { color: var(--accent); font-weight: bold; margin-top: 10px; text-transform: uppercase; font-size: 0.9rem; }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        header p { color: var(--accent); font-weight: bold; margin-top: 10px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
         
         /* Navigation Tabs */
         .tabs-nav {
@@ -34,9 +34,14 @@
             justify-content: center;
             background: white;
             border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
         }
         .tab-btn {
-            padding: 15px 30px;
+            padding: 15px 25px;
             border: none;
             background: none;
             font-size: 1rem;
@@ -55,10 +60,11 @@
         .container {
             max-width: 900px;
             margin: 40px auto;
-            padding: 30px;
+            padding: 35px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            box-sizing: border-box;
         }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
@@ -67,9 +73,53 @@
             color: var(--primary);
             border-left: 5px solid var(--accent);
             padding-left: 12px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-top: 0;
+            margin-bottom: 15px;
         }
+        p { line-height: 1.6; color: #475569; }
+        
+        /* Roadmap Phase Styles */
+        .phase-container {
+            margin-top: 25px;
+        }
+        .phase-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: var(--light);
+            position: relative;
+        }
+        .phase-badge {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .phase-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .phase-list {
+            margin: 15px 0 0 0;
+            padding-left: 20px;
+            color: #475569;
+        }
+        .phase-list li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        /* Calculator Area */
         .calculator-box {
             background: var(--light);
             padding: 25px;
@@ -77,29 +127,28 @@
             border: 1px solid var(--border);
             margin: 20px 0;
         }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--primary); }
-        input[type="range"] { width: 100%; accent-color: var(--primary); }
-        .value-display { font-size: 1.1rem; font-weight: bold; color: var(--accent); float: right; }
+        .form-group { margin-bottom: 25px; }
+        label { display: block; font-weight: bold; margin-bottom: 10px; color: var(--primary); }
+        input[type="range"] { width: 100%; accent-color: var(--primary); cursor: pointer; }
+        .value-display { font-size: 1.2rem; font-weight: bold; color: var(--accent); float: right; }
         
         .result-display {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             background: var(--primary);
             color: white;
             border-radius: 6px;
             margin-top: 25px;
         }
-        .result-display h3 { margin: 0; font-size: 1rem; text-transform: uppercase; color: var(--accent); }
-        .result-display .amount { font-size: 2.3rem; font-weight: bold; margin: 10px 0; }
+        .result-display h3 { margin: 0; font-size: 1rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; }
+        .result-display .amount { font-size: 2.5rem; font-weight: bold; margin: 12px 0; }
         
-        /* Compliance Styles */
-        .qa-section { margin-top: 20px; }
+        /* Compliance Cards */
         .qa-card {
             border: 1px solid var(--border);
             border-radius: 6px;
             padding: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             background-color: var(--light);
         }
         .qa-card h3 { margin-top: 0; color: var(--primary); font-size: 1.1rem; }
@@ -111,7 +160,32 @@
             border-radius: 4px;
             font-size: 0.8rem;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        /* Founder Profile Layout */
+        .founder-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 25px;
+        }
+        .founder-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #ddd;
+        }
+        .founder-bio { flex: 1; }
+        .founder-bio h3 { margin-top: 0; color: var(--primary); font-size: 1.3rem; margin-bottom: 5px; }
+        .founder-bio em { color: var(--accent); font-weight: 600; font-style: normal; display: block; margin-bottom: 10px; }
+
+        @media (max-width: 600px) {
+            .founder-section { flex-direction: column; text-align: center; }
+            .tabs-nav { justify-content: flex-start; }
         }
 
         .cta-btn {
@@ -120,15 +194,16 @@
             background: var(--accent);
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 16px;
             border: none;
             border-radius: 6px;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
-            margin-top: 30px;
+            margin-top: 35px;
             box-sizing: border-box;
+            transition: background 0.2s;
         }
         .cta-btn:hover { background: #725e3d; }
     </style>
@@ -141,15 +216,62 @@
     </header>
 
     <div class="tabs-nav">
-        <button class="tab-btn active" onclick="switchTab('calculator')">Leakage Calculator</button>
-        <button class="tab-btn" onclick="switchTab('security')">Security & Trust Center</button>
+        <button class="tab-btn active" onclick="switchTab('vision')">Our Vision</button>
+        <button class="tab-btn" onclick="switchTab('deployment')">Deployment Deployment Strategy</button>
+        <button class="tab-btn" onclick="switchTab('calculator')">Leakage Calculator</button>
+        <button class="tab-btn" onclick="switchTab('security')">Security & Compliance</button>
     </div>
 
     <div class="container">
         
-        <div id="calculator" class="tab-content active">
-            <h2>Evaluate Corporate Deposit Leakage</h2>
-            <p>National money-centers use predatory transaction matching to systematically harvest mid-market regional balances. Calculate your structural exposure window below:</p>
+        <div id="vision" class="tab-content active">
+            <h2>Defending Community Wealth</h2>
+            <p>Regional dominance is no longer just about classic relationship management—it is about <strong>Data Sovereignty</strong>. National money-centers deploy automated transaction patterns to systematically poach high-velocity interchange and core regional balances right out from under local providers.</p>
+            <p>Bank Defender provides local institutions with an uncompromised defensive perimeter, helping community institutions transform everyday transactions into a permanent competitive moat.</p>
+            
+            <h2 style="margin-top: 40px;">About the Founder</h2>
+            <div class="founder-section">
+                <img src="profile.jpg" alt="Matt Thompson" class="founder-img" onerror="this.style.display='none';">
+                <div class="founder-bio">
+                    <h3>Matt Thompson</h3>
+                    <em>Founder & Managing Director</em>
+                    <p style="margin: 0;">Built specifically for regional bank builders, Bank Defender was born from a singular mission: keeping local capital within local infrastructure. We specialize in providing stateless data forensics that protect the community margins that define our hometown markets.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="deployment" class="tab-content">
+            <h2>Our Defensive Execution Roadmap</h2>
+            <p>Defending your deposit base requires an immediate tactical assessment followed by a structural behavioral change. We deploy this security engine in two distinct phases:</p>
+            
+            <div class="phase-container">
+                <div class="phase-card">
+                    <span class="phase-badge">PHASE 1</span>
+                    <h3>Forensic Leakage Discovery</h3>
+                    <p>We analyze the velocity and direction of capital siphoned from your bank by money-center cards. Using a zero-integration ingestion pipeline, we expose exactly where your balance sheet is bleeding.</p>
+                    <ul class="phase-list">
+                        <li><strong>15-Minute Configuration:</strong> Your data team exports an anonymized, PII-free transaction log via a secure CSV file.</li>
+                        <li><strong>BigQuery Forensic Engine:</strong> Our platform maps transaction anchors to discover precise ACH and interchange leakage points.</li>
+                        <li><strong>Leakage Impact Briefing:</strong> We deliver an actionable risk diagnostic mapping the exact commercial and mortgage assets under active poacher surveillance.</li>
+                    </ul>
+                </div>
+
+                <div class="phase-card">
+                    <span class="phase-badge">PHASE 2</span>
+                    <h3>The 10% Behavioral Moat</h3>
+                    <p>Once the leaks are isolated, we activate the defense layer. We help you alter customer card behaviors by turning local loyalty loops into an unbeatable mathematical advantage.</p>
+                    <ul class="phase-list">
+                        <li><strong>Crossing the Threshold:</strong> Standard 3% point rewards fail to influence customer spend patterns. At 10% instant cashback, behavior shifts instantly.</li>
+                        <li><strong>Hyper-Local Intercept:</strong> We coordinate targeted retention triggers at premium local staples—meaning your whales swap out national cards where it impacts your relationship book the most.</li>
+                        <li><strong>Deposit Moat Inversion:</strong> Turn transaction data back into core lending assets, intercepting commercial refis and residential mortgage poaching before the capital ever leaves your ledger.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="calculator" class="tab-content">
+            <h2>Evaluate Asset Base Yield Losses</h2>
+            <p>Calculate your structural exposure window below using the 1% Defensive Pivot matrix to understand how much deposit yield is actively leaving your branch network:</p>
             
             <div class="calculator-box">
                 <div class="form-group">
@@ -165,74 +287,27 @@
                 <div class="result-display">
                     <h3>Annual Value Recovery Target</h3>
                     <div class="amount" id="total-leakage">$17,500,000</div>
-                    <p style="margin: 0; font-size: 0.8rem; color: #94a3b8;">Derived via the 1% Defensive Pivot Matrix</p>
+                    <p style="margin: 0; font-size: 0.8rem; color: #94a3b8;">Derived via Forensic Yield Analytics Modeling</p>
                 </div>
             </div>
         </div>
 
         <div id="security" class="tab-content">
-            <h2>Enterprise Compliance & Architecture Vetting</h2>
-            <p>Bank Defender is engineered specifically to bypass the standard IT overhead hurdles of legacy core banking architecture. We operate an isolated, high-security infrastructure data model.</p>
+            <h2>Enterprise Compliance Vetting</h2>
+            <p>Bank Defender is engineered specifically to bypass the standard IT overhead hurdles of legacy banking software updates. We maintain a zero-friction, high-security infrastructure data silo model.</p>
             
             <div class="qa-section">
                 <div class="qa-card">
                     <span class="badge">Privacy Pillar</span>
                     <h3>How do you handle Personally Identifiable Information (PII)?</h3>
-                    <p>We do not. Bank Defender enforces a strict, stateless data model. Partner institutions strip all primary customer identifiers before secure transmission. We exclusively process anonymized, synthetic Account IDs, transaction dates, amounts, and raw ACH transaction text strings.</p>
+                    <p>We do not. Bank Defender enforces a strict, stateless data model. Partner institutions strip all primary customer identifiers before secure transmission. We exclusively process anonymized, synthetic Account IDs, transaction dates, amounts, and raw ACH text strings.</p>
                 </div>
 
                 <div class="qa-card">
-                    <span class="badge">SOC 2 & Compliance</span>
+                    <span class="badge">SOC 2 Alignment</span>
                     <h3>What is your current compliance framework status?</h3>
-                    <p>Our entire Google Cloud platform architecture is managed continuously using Vanta integration mapping for real-time SOC 2 Type Type Readiness verification. Security Command Center automation alerts our DevOps layer instantly to maintain cloud hardening controls.</p>
+                    <p>Our infrastructure environment is mapped continuously using real-time Vanta configuration checks for SOC 2 Type readiness verification. Automated event monitors alert our DevOps layers instantly to uphold security posture hardening controls.</p>
                 </div>
 
                 <div class="qa-card">
-                    <span class="badge">Storage Control</span>
-                    <h3>What are your data retention and lifecycle policies?</h3>
-                    <p>Raw inbound transactional files are processed via secure memory space and programmatically deleted from Google Cloud Storage within 30 days via automated Object Lifecycle Management policies. Only tokenized, structural performance metadata is held long-term for multi-year trend forecasting charts.</p>
-                </div>
-            </div>
-        </div>
-
-        <a href="mailto:matt@bankdefender.com?subject=Design Partner Verification Request" class="cta-btn">Request Architecture & Design Partner Documentation</a>
-    </div>
-
-    <script>
-        // Tab switching logic
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-
-        // Calculator logic
-        const depositsInput = document.getElementById('deposits');
-        const nimInput = document.getElementById('nim');
-        const depositsTxt = document.getElementById('deposits-txt');
-        const nimTxt = document.getElementById('nim-txt');
-        const totalLeakage = document.getElementById('total-leakage');
-
-        function formatCurrency(num) {
-            return '$' + num.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-        }
-
-        function calculate() {
-            const deposits = parseFloat(depositsInput.value);
-            const nim = parseFloat(nimInput.value) / 100;
-            
-            depositsTxt.innerText = formatCurrency(deposits);
-            nimTxt.innerText = nimInput.value + '%';
-            
-            const leakage = (deposits * 0.01) * nim;
-            totalLeakage.innerText = formatCurrency(leakage);
-        }
-
-        depositsInput.addEventListener('input', calculate);
-        nimInput.addEventListener('input', calculate);
-        calculate();
-    </script>
-</body>
-</html>
+                    <span class
