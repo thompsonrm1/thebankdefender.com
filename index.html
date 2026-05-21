@@ -3,161 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank Defender | Institutional Asset Protection</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Bank Defender | Enterprise Asset Sovereignty</title>
     <style>
-        :root { 
-            --primary: #10b981; /* Electric Emerald */
-            --dark-navy: #0a192f; 
-            --slate: #1e293b;
-            --white: #ffffff; 
-            --text-muted: #94a3b8;
+        :root {
+            --primary: #0a1a35;
+            --accent: #8c734b;
+            --text: #333333;
+            --light: #f4f7f9;
+            --border: #e2e8f0;
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--white); background: #020617; line-height: 1.6; }
-
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background-color: var(--light);
+        }
         header {
-            height: 90vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
-                        url('./nashville.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            padding: 0 20px;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
         }
-
-        .hero-content h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -2px; }
-        .hero-content p { font-size: 1.5rem; max-width: 850px; margin: 0 auto; color: var(--text-muted); font-weight: 300; }
-        .hero-content span { color: var(--primary); }
-
-        section { padding: 100px 10%; max-width: 1300px; margin: 0 auto; }
+        header h1 { margin: 0; font-size: 2.3rem; letter-spacing: 1px; }
+        header p { color: var(--accent); font-weight: bold; margin-top: 10px; text-transform: uppercase; font-size: 0.9rem; }
         
-        .mission-card { 
-            background: var(--dark-navy); 
-            padding: 60px; 
-            border-radius: 12px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
-            margin-top: -120px; 
-            position: relative; 
-            z-index: 10; 
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-top: 8px solid var(--primary);
+        /* Navigation Tabs */
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+        .tab-btn {
+            padding: 15px 30px;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover { color: var(--primary); }
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
         }
 
-        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--white); }
-        .accent-text { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
-
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
-        .service-item { 
-            background: rgba(30, 41, 59, 0.5); 
-            padding: 45px; 
-            border-radius: 12px; 
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s;
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
-        .service-item:hover { border-color: var(--primary); transform: translateY(-10px); background: rgba(16, 185, 129, 0.05); }
-        .service-item h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.6rem; }
-        .service-item p { color: var(--text-muted); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
 
-        .founder-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; margin-top: 80px; }
-        .founder-img { width: 100%; border-radius: 12px; filter: grayscale(20%); border: 1px solid rgba(16, 185, 129, 0.4); }
-
-        .contact-wrap { background: var(--dark-navy); padding: 80px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.2); margin-top: 60px; }
-        .form-input { 
-            width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 6px; 
-            border: 1px solid #334155; background: #0f172a; color: white; outline: none;
+        h2 {
+            color: var(--primary);
+            border-left: 5px solid var(--accent);
+            padding-left: 12px;
+            font-size: 1.4rem;
+            margin-top: 0;
         }
-        .form-input:focus { border-color: var(--primary); }
-        .btn-submit { 
-            background: var(--primary); color: var(--dark-navy); padding: 22px; 
-            width: 100%; border: none; border-radius: 6px; font-weight: 800; 
-            cursor: pointer; transition: 0.3s; font-size: 1.1rem;
+        .calculator-box {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            margin: 20px 0;
         }
-        .btn-submit:hover { background: #0ea171; transform: scale(1.01); }
-
-        footer { text-align: center; padding: 60px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.05); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--primary); }
+        input[type="range"] { width: 100%; accent-color: var(--primary); }
+        .value-display { font-size: 1.1rem; font-weight: bold; color: var(--accent); float: right; }
         
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            .founder-grid { grid-template-columns: 1fr; }
-            .mission-card { padding: 30px; }
+        .result-display {
+            text-align: center;
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
+            margin-top: 25px;
         }
+        .result-display h3 { margin: 0; font-size: 1rem; text-transform: uppercase; color: var(--accent); }
+        .result-display .amount { font-size: 2.3rem; font-weight: bold; margin: 10px 0; }
+        
+        /* Compliance Styles */
+        .qa-section { margin-top: 20px; }
+        .qa-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background-color: var(--light);
+        }
+        .qa-card h3 { margin-top: 0; color: var(--primary); font-size: 1.1rem; }
+        .badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 30px;
+            box-sizing: border-box;
+        }
+        .cta-btn:hover { background: #725e3d; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="hero-content">
-<img src="./logo.png?v=9" alt="Bank Defender Logo" style="height: 140px; width: auto; margin-bottom: 35px; object-fit: contain; background-color: #ffffff; padding: 10px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">            <span class="accent-text">Engineered in Nashville</span>
-            <h1>Bank <span>Defender</span></h1>
-            <p>Defending the Balance Sheet. Reclaiming Regional Assets from National Giants.</p>
-        </div>
+        <h1>BANK DEFENDER</h1>
+        <p>The Digital Perimeter for Regional Asset Retention</p>
     </header>
 
-    <main>
-        <section>
-            <div class="mission-card">
-                <span class="accent-text">The Institutional Mandate</span>
-                <h2>Defending the "Whale"</h2>
-                <p>Your highest-value clients keep their deposits in your vault, but send their most profitable activities—<strong>mortgages, auto loans, and interchange fees</strong>—to Wall Street. Bank Defender provides the <strong>Institutional Intelligence</strong> needed to identify these outflows in real-time and provide a surgical, data-backed reason for your members to bring their capital home.</p>
-            </div>
+    <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('calculator')">Leakage Calculator</button>
+        <button class="tab-btn" onclick="switchTab('security')">Security & Trust Center</button>
+    </div>
 
-            <div class="service-grid">
-                <div class="service-item">
-                    <h3>The Leakage Radar</h3>
-                    <p>Powered by <strong>Plaid + BigQuery</strong>. We alert your team the moment a HNW client triggers a $4,000+ mortgage payment or refinance check to a national competitor.</p>
+    <div class="container">
+        
+        <div id="calculator" class="tab-content active">
+            <h2>Evaluate Corporate Deposit Leakage</h2>
+            <p>National money-centers use predatory transaction matching to systematically harvest mid-market regional balances. Calculate your structural exposure window below:</p>
+            
+            <div class="calculator-box">
+                <div class="form-group">
+                    <label for="deposits">Total Bank Deposits <span id="deposits-txt" class="value-display">$5,000,000,000</span></label>
+                    <input type="range" id="deposits" min="100000000" max="25000000000" step="100000000" value="50000000000">
                 </div>
-                <div class="service-item">
-                    <h3>Precision Incentives</h3>
-                    <p>Geofenced, automated rewards at Nashville landmarks. We make national "points" programs mathematically irrational for local leaders.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Sovereign Infrastructure</h3>
-                    <p>Built on <strong>Google Cloud</strong>. Every partner receives an isolated, hardened GCP Project. Zero-friction core integration.</p>
-                </div>
-            </div>
 
-            <div class="founder-grid" id="about">
-                <img src="./founder.jpg" alt="Matt Thompson - Founder" class="founder-img">
-                <div>
-                    <span class="accent-text">The Founder</span>
-                    <h2>Founding Vision: Matt Thompson</h2>
-                    <p>Matt Thompson’s perspective was forged as a <strong>Bank Teller for Citizens Bank</strong>. He saw that a community’s health is directly tied to the health of its local bank's balance sheet.</p>
-                    <br>
-                    <p>Today, Matt leverages <strong>7 years of Google Cloud Expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking.</p>
+                <div class="form-group">
+                    <label for="nim">Net Interest Margin (NIM) <span id="nim-txt" class="value-display">3.50%</span></label>
+                    <input type="range" id="nim" min="2.00" max="5.00" step="0.05" value="3.50">
+                </div>
+
+                <div class="result-display">
+                    <h3>Annual Value Recovery Target</h3>
+                    <div class="amount" id="total-leakage">$17,500,000</div>
+                    <p style="margin: 0; font-size: 0.8rem; color: #94a3b8;">Derived via the 1% Defensive Pivot Matrix</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="contact">
-            <div class="contact-wrap">
-                <h2 style="text-align: center; color: white;">Request an Institutional Audit</h2>
-                <p style="text-align: center; margin-bottom: 40px; color: var(--text-muted);">Quantify your leakage. Protect your Whale portfolio. Reclaim your region.</p>
-                
-                <form action="https://formspree.io/f/xreareww" method="POST">
-                    <div style="display: flex; gap: 15px;">
-                        <input type="text" name="first_name" placeholder="First Name" class="form-input" required>
-                        <input type="text" name="last_name" placeholder="Last Name" class="form-input" required>
-                    </div>
-                    <input type="email" name="email" placeholder="Professional Email" class="form-input" required>
-                    <input type="text" name="title" placeholder="Job Title" class="form-input" required>
-                    <input type="text" name="institution_name" placeholder="Financial Institution Name" class="form-input" required>
-                    <input type="text" name="address" placeholder="HQ City, State" class="form-input" required>
+        <div id="security" class="tab-content">
+            <h2>Enterprise Compliance & Architecture Vetting</h2>
+            <p>Bank Defender is engineered specifically to bypass the standard IT overhead hurdles of legacy core banking architecture. We operate an isolated, high-security infrastructure data model.</p>
+            
+            <div class="qa-section">
+                <div class="qa-card">
+                    <span class="badge">Privacy Pillar</span>
+                    <h3>How do you handle Personally Identifiable Information (PII)?</h3>
+                    <p>We do not. Bank Defender enforces a strict, stateless data model. Partner institutions strip all primary customer identifiers before secure transmission. We exclusively process anonymized, synthetic Account IDs, transaction dates, amounts, and raw ACH transaction text strings.</p>
+                </div>
 
-                    <button type="submit" class="btn-submit">Submit Inquiry</button>
-                </form>
+                <div class="qa-card">
+                    <span class="badge">SOC 2 & Compliance</span>
+                    <h3>What is your current compliance framework status?</h3>
+                    <p>Our entire Google Cloud platform architecture is managed continuously using Vanta integration mapping for real-time SOC 2 Type Type Readiness verification. Security Command Center automation alerts our DevOps layer instantly to maintain cloud hardening controls.</p>
+                </div>
+
+                <div class="qa-card">
+                    <span class="badge">Storage Control</span>
+                    <h3>What are your data retention and lifecycle policies?</h3>
+                    <p>Raw inbound transactional files are processed via secure memory space and programmatically deleted from Google Cloud Storage within 30 days via automated Object Lifecycle Management policies. Only tokenized, structural performance metadata is held long-term for multi-year trend forecasting charts.</p>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <footer>
-        &copy; 2026 BANK DEFENDER | B2B FINTECH INFRASTRUCTURE | NASHVILLE, TN
-    </footer>
+        <a href="mailto:matt@bankdefender.com?subject=Design Partner Verification Request" class="cta-btn">Request Architecture & Design Partner Documentation</a>
+    </div>
 
+    <script>
+        // Tab switching logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Calculator logic
+        const depositsInput = document.getElementById('deposits');
+        const nimInput = document.getElementById('nim');
+        const depositsTxt = document.getElementById('deposits-txt');
+        const nimTxt = document.getElementById('nim-txt');
+        const totalLeakage = document.getElementById('total-leakage');
+
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        function calculate() {
+            const deposits = parseFloat(depositsInput.value);
+            const nim = parseFloat(nimInput.value) / 100;
+            
+            depositsTxt.innerText = formatCurrency(deposits);
+            nimTxt.innerText = nimInput.value + '%';
+            
+            const leakage = (deposits * 0.01) * nim;
+            totalLeakage.innerText = formatCurrency(leakage);
+        }
+
+        depositsInput.addEventListener('input', calculate);
+        nimInput.addEventListener('input', calculate);
+        calculate();
+    </script>
 </body>
 </html>
