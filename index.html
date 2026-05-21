@@ -37,8 +37,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            overflow-x: auto;
-            white-space: nowrap;
         }
         .tab-btn {
             padding: 15px 25px;
@@ -80,9 +78,7 @@
         p { line-height: 1.6; color: #475569; }
         
         /* Roadmap Phase Styles */
-        .phase-container {
-            margin-top: 25px;
-        }
+        .phase-container { margin-top: 25px; }
         .phase-card {
             border: 1px solid var(--border);
             border-radius: 6px;
@@ -103,21 +99,9 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
-        .phase-card h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-        .phase-list {
-            margin: 15px 0 0 0;
-            padding-left: 20px;
-            color: #475569;
-        }
-        .phase-list li {
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
+        .phase-card h3 { margin-top: 0; color: var(--primary); font-size: 1.3rem; margin-bottom: 10px; }
+        .phase-list { margin: 15px 0 0 0; padding-left: 20px; color: #475569; }
+        .phase-list li { margin-bottom: 8px; line-height: 1.5; }
 
         /* Calculator Area */
         .calculator-box {
@@ -185,7 +169,7 @@
 
         @media (max-width: 600px) {
             .founder-section { flex-direction: column; text-align: center; }
-            .tabs-nav { justify-content: flex-start; }
+            .tabs-nav { overflow-x: scroll; justify-content: flex-start; }
         }
 
         .cta-btn {
@@ -203,7 +187,6 @@
             text-decoration: none;
             margin-top: 35px;
             box-sizing: border-box;
-            transition: background 0.2s;
         }
         .cta-btn:hover { background: #725e3d; }
     </style>
@@ -217,7 +200,7 @@
 
     <div class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('vision')">Our Vision</button>
-        <button class="tab-btn" onclick="switchTab('deployment')">Deployment Deployment Strategy</button>
+        <button class="tab-btn" onclick="switchTab('roadmap')">Strategic Roadmap</button>
         <button class="tab-btn" onclick="switchTab('calculator')">Leakage Calculator</button>
         <button class="tab-btn" onclick="switchTab('security')">Security & Compliance</button>
     </div>
@@ -231,7 +214,7 @@
             
             <h2 style="margin-top: 40px;">About the Founder</h2>
             <div class="founder-section">
-                <img src="profile.jpg" alt="Matt Thompson" class="founder-img" onerror="this.style.display='none';">
+                <img src="profile.jpg" alt="Matt Thompson" class="founder-img">
                 <div class="founder-bio">
                     <h3>Matt Thompson</h3>
                     <em>Founder & Managing Director</em>
@@ -240,7 +223,7 @@
             </div>
         </div>
 
-        <div id="deployment" class="tab-content">
+        <div id="roadmap" class="tab-content">
             <h2>Our Defensive Execution Roadmap</h2>
             <p>Defending your deposit base requires an immediate tactical assessment followed by a structural behavioral change. We deploy this security engine in two distinct phases:</p>
             
@@ -252,7 +235,7 @@
                     <ul class="phase-list">
                         <li><strong>15-Minute Configuration:</strong> Your data team exports an anonymized, PII-free transaction log via a secure CSV file.</li>
                         <li><strong>BigQuery Forensic Engine:</strong> Our platform maps transaction anchors to discover precise ACH and interchange leakage points.</li>
-                        <li><strong>Leakage Impact Briefing:</strong> We deliver an actionable risk diagnostic mapping the exact commercial and mortgage assets under active poacher surveillance.</li>
+                        <li><strong>Leakage Impact Briefing:</strong> We deliver an actionable risk diagnostic mapping the exact commercial and mortgage assets under active poaching surveillance.</li>
                     </ul>
                 </div>
 
@@ -310,4 +293,49 @@
                 </div>
 
                 <div class="qa-card">
-                    <span class
+                    <span class="badge">Storage Control</span>
+                    <h3>What are your data retention and lifecycle policies?</h3>
+                    <p>Raw transactional files are programmatically deleted from Google Cloud Storage environments within 30 days via automated Lifecycle Management policies. Only parsed, unidentifiable structural performance metadata is held long-term for multi-year retention forecasting.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="mailto:matt@bankdefender.com?subject=Design Partner Inquiry" class="cta-btn">Apply for Regional Design Partner Priority Access</a>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        const depositsInput = document.getElementById('deposits');
+        const nimInput = document.getElementById('nim');
+        const depositsTxt = document.getElementById('deposits-txt');
+        const nimTxt = document.getElementById('nim-txt');
+        const totalLeakage = document.getElementById('total-leakage');
+
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        function calculate() {
+            const deposits = parseFloat(depositsInput.value);
+            const nim = parseFloat(nimInput.value) / 100;
+            
+            depositsTxt.innerText = formatCurrency(deposits);
+            nimTxt.innerText = nimInput.value + '%';
+            
+            const leakage = (deposits * 0.01) * nim;
+            totalLeakage.innerText = formatCurrency(leakage);
+        }
+
+        depositsInput.addEventListener('input', calculate);
+        nimInput.addEventListener('input', calculate);
+        calculate();
+    </script>
+</body>
+</html>
