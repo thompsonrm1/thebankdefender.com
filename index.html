@@ -176,10 +176,7 @@
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
         }
-        .hero h1 em {
-            font-style: italic;
-            color: var(--gold);
-        }
+        .hero h1 em { font-style: italic; color: var(--gold); }
         .hero-sub {
             font-size: 18px;
             font-weight: 300;
@@ -238,7 +235,7 @@
         .ticker-track {
             display: flex;
             white-space: nowrap;
-            animation: ticker-scroll 32s linear infinite;
+            animation: ticker-scroll 36s linear infinite;
         }
         .ticker-item {
             font-size: 10px;
@@ -350,7 +347,6 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 1.75rem;
-            font-size: 20px;
             color: var(--gold);
         }
         .problem-title {
@@ -428,8 +424,7 @@
             color: var(--gold);
             opacity: 0.04;
             position: absolute;
-            top: -2rem;
-            left: 1.5rem;
+            top: -2rem; left: 1.5rem;
             line-height: 1;
             pointer-events: none;
         }
@@ -512,6 +507,116 @@
             color: var(--text-muted);
             line-height: 1.65;
         }
+
+        /* PHASE BLOCK — used for Phase 1 & Phase 2 headers */
+        .phase-band {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .phase-badge {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #08080e;
+            background: var(--gold);
+            padding: 0.4rem 1rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .phase-band-line {
+            flex: 1;
+            height: 0.5px;
+            background: var(--border);
+        }
+
+        /* PHASE 2 — SOVEREIGNTY ENGINE */
+        .sovereignty-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+        .sovereignty-card {
+            background: var(--bg-panel);
+            padding: 2.5rem 2rem;
+            transition: background 0.25s;
+        }
+        .sovereignty-card:hover { background: #111118; }
+        .sovereignty-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 0.5px solid var(--border);
+            padding: 0.3rem 0.7rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            background: var(--gold-faint);
+        }
+        .sovereignty-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.85rem;
+            line-height: 1.3;
+        }
+        .sovereignty-body {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .sovereignty-insight {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(201,168,76,0.05);
+            border-left: 2px solid var(--gold);
+        }
+        .sovereignty-insight-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+        .sovereignty-insight p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* BOARDROOM CALLOUT */
+        .boardroom-card {
+            background: var(--bg-panel);
+            border: 0.5px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 2.5rem 3rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        .boardroom-card-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .boardroom-card p {
+            font-size: 17px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .boardroom-card strong { color: var(--text-primary); font-weight: 500; font-style: normal; }
 
         /* WHO WE SERVE */
         .roles-row {
@@ -614,24 +719,6 @@
             border: 0.5px solid var(--border);
             padding: 0.45rem 0.9rem;
             background: var(--gold-faint);
-        }
-
-        /* DIVIDER */
-        .gold-divider {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 0 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .gold-divider-line { flex: 1; height: 0.5px; background: var(--border); }
-        .gold-divider-diamond {
-            width: 8px; height: 8px;
-            background: var(--gold);
-            transform: rotate(45deg);
-            opacity: 0.5;
-            flex-shrink: 0;
         }
 
         /* CONTACT FORM */
@@ -786,6 +873,7 @@
             .problem-grid { grid-template-columns: 1fr; }
             .intel-grid { grid-template-columns: 1fr; }
             .deliverables-grid { grid-template-columns: 1fr; }
+            .sovereignty-grid { grid-template-columns: 1fr; }
             .roles-row { grid-template-columns: 1fr 1fr; }
             .role-cell:nth-child(2) { border-right: none; }
             .role-cell:nth-child(3) { border-right: 0.5px solid var(--border); border-top: 0.5px solid var(--border); }
@@ -800,6 +888,7 @@
             .contact-section { padding: 2.5rem 1.5rem; }
             footer { flex-direction: column; text-align: center; }
             .asymmetry-band { padding: 2rem 1.5rem; }
+            .boardroom-card { padding: 2rem 1.5rem; }
         }
         @media (max-width: 600px) {
             .hero h1 { font-size: 36px; }
@@ -810,16 +899,19 @@
 </head>
 <body>
 
+    <!-- NAV -->
     <nav>
         <a href="#" class="nav-logo">The Bank<span>Defender</span></a>
         <ul class="nav-links">
             <li><a href="#problem">The Problem</a></li>
             <li><a href="#intelligence">Intelligence</a></li>
+            <li><a href="#sovereignty">Data Sovereignty</a></li>
             <li><a href="#about">About</a></li>
         </ul>
         <a href="#contact" class="nav-cta">Request Assessment</a>
     </nav>
 
+    <!-- HERO -->
     <header class="hero">
         <div class="hero-bg"></div>
         <div class="hero-bg-overlay"></div>
@@ -842,6 +934,7 @@
         </div>
     </header>
 
+    <!-- TICKER -->
     <div class="ticker">
         <div class="ticker-track">
             <span class="ticker-item">Mortgage Outflow Intelligence</span>
@@ -849,6 +942,9 @@
             <span class="ticker-item">Interchange Revenue Recovery</span>
             <span class="ticker-item">Auto Loan Recapture</span>
             <span class="ticker-item">Wealth Flight Detection</span>
+            <span class="ticker-item">Silent Whale Identification</span>
+            <span class="ticker-item">Predictive Lead Generation</span>
+            <span class="ticker-item">Data Sovereignty Engine</span>
             <span class="ticker-item">Relationship Manager Enablement</span>
             <span class="ticker-item">Balance Sheet Defense</span>
             <span class="ticker-item">HNW Portfolio Retention</span>
@@ -857,12 +953,16 @@
             <span class="ticker-item">Interchange Revenue Recovery</span>
             <span class="ticker-item">Auto Loan Recapture</span>
             <span class="ticker-item">Wealth Flight Detection</span>
+            <span class="ticker-item">Silent Whale Identification</span>
+            <span class="ticker-item">Predictive Lead Generation</span>
+            <span class="ticker-item">Data Sovereignty Engine</span>
             <span class="ticker-item">Relationship Manager Enablement</span>
             <span class="ticker-item">Balance Sheet Defense</span>
             <span class="ticker-item">HNW Portfolio Retention</span>
         </div>
     </div>
 
+    <!-- STATS -->
     <div class="section-wrap" style="padding-top: 3rem; padding-bottom: 1rem;">
         <div class="stats-grid fade-up">
             <div class="stat-cell">
@@ -882,6 +982,7 @@
 
     <hr class="gold-rule">
 
+    <!-- ASYMMETRY BAND -->
     <div class="asymmetry-band fade-up">
         <div class="asymmetry-band-inner">
             <span class="asymmetry-label">The Data Asymmetry</span>
@@ -892,9 +993,13 @@
 
     <hr class="gold-rule">
 
+    <!-- THE PROBLEM -->
     <div id="problem" class="section-wrap">
         <div class="section-header fade-up">
-            <span class="section-label">The Leakage Problem</span>
+            <div class="phase-band">
+                <span class="phase-badge">Phase 1 · Asset Intelligence Audit</span>
+                <div class="phase-band-line"></div>
+            </div>
             <h2 class="section-title">Four Places Your P&amp;L Is Bleeding</h2>
             <p class="section-body">Your balance sheet tells one story. Your clients' full financial lives tell another. The gap between them is your opportunity — and your competitor's intelligence feed.</p>
         </div>
@@ -936,6 +1041,7 @@
 
     <hr class="gold-rule">
 
+    <!-- MANDATE CARD -->
     <div class="bg-alt">
         <div class="section-wrap">
             <div class="section-header fade-up">
@@ -950,6 +1056,7 @@
 
     <hr class="gold-rule">
 
+    <!-- INTELLIGENCE + DELIVERABLES -->
     <div id="intelligence" class="section-wrap">
         <div class="section-header fade-up">
             <span class="section-label">The Intelligence Layer</span>
@@ -1004,41 +1111,119 @@
 
     <hr class="gold-rule">
 
-    <div class="bg-alt">
+    <!-- PHASE 2: DATA SOVEREIGNTY ENGINE -->
+    <div id="sovereignty" class="bg-alt">
         <div class="section-wrap">
             <div class="section-header fade-up">
-                <span class="section-label">Who We Serve</span>
-                <h2 class="section-title">Built for the Executives Who Own the P&amp;L</h2>
-                <p class="section-body">Purpose-built for community and regional bank leadership — not a generic CRM add-on.</p>
+                <div class="phase-band">
+                    <span class="phase-badge">Phase 2 · Data Sovereignty Engine</span>
+                    <div class="phase-band-line"></div>
+                </div>
+                <h2 class="section-title">You Are the Pipeline.<br>Unless You Own the Data.</h2>
+                <p class="section-body">National money-center banks own the lifestyle and intent data generated through credit card spend. That asymmetry lets them algorithmically poach your clients before your team knows there's a threat. Phase 2 closes the gap.</p>
             </div>
-            <div class="roles-row fade-up">
-                <div class="role-cell">
-                    <div class="role-icon-wrap">
-                        <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+
+            <div class="sovereignty-grid fade-up">
+                <div class="sovereignty-card">
+                    <span class="sovereignty-tag">The Interceptor</span>
+                    <div class="sovereignty-title">Predictive Lead Generation</div>
+                    <div class="sovereignty-body">High-value financial decisions are preceded by behavioral signatures in credit card spend — shifts to architectural firms, private schools, yacht clubs, or high-limit luxury retail. These are life-stage triggers that national AI is already reading. Phase 2 gives your team the same radar.</div>
+                    <div class="sovereignty-insight">
+                        <span class="sovereignty-insight-label">The Bank's Win</span>
+                        <p>Your RM reaches out with a personalized Private Banking offer while your competitor's model is still generating the lead. You move from reactive to proactive — permanently.</p>
                     </div>
-                    <div class="role-title">Bank President &amp; CEO</div>
-                    <div class="role-sub">Strategic visibility into whole-bank revenue leakage</div>
                 </div>
-                <div class="role-cell">
-                    <div class="role-icon-wrap">
-                        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <div class="sovereignty-card">
+                    <span class="sovereignty-tag">The 360° View</span>
+                    <div class="sovereignty-title">Silent Whale Identification</div>
+                    <div class="sovereignty-body">A client with $100K in your checking account looks identical to any other — until you see their external credit card limits, utilization, and total debt-to-income. Plaid-linked intelligence reveals the clients with a massive financial footprint entirely outside your institution.</div>
+                    <div class="sovereignty-insight">
+                        <span class="sovereignty-insight-label">The Bank's Win</span>
+                        <p>Identify your Silent Whales and prioritize them for your highest-margin Wealth Management and Trust services — before a wirehouse does it first.</p>
                     </div>
-                    <div class="role-title">Head of Mortgage Lending</div>
-                    <div class="role-sub">Identify and recapture volume before it closes elsewhere</div>
                 </div>
-                <div class="role-cell">
-                    <div class="role-icon-wrap">
-                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                <div class="sovereignty-card">
+                    <span class="sovereignty-tag">Interchange Sovereignty</span>
+                    <div class="sovereignty-title">Reclaiming the First Touch</div>
+                    <div class="sovereignty-body">National banks use points programs to keep your clients' transaction data inside their ecosystem — blinding you to future intent. By seeing where your clients spend locally, you can deploy targeted cashback incentives that no national points program can structurally compete with.</div>
+                    <div class="sovereignty-insight">
+                        <span class="sovereignty-insight-label">The Bank's Win</span>
+                        <p>You aren't just winning a transaction. You are recapturing the interchange revenue and — more importantly — blinding your national competitors to your client's next financial move.</p>
                     </div>
-                    <div class="role-title">Relationship Managers</div>
-                    <div class="role-sub">Outreach powered by verified client intelligence</div>
                 </div>
-                <div class="role-cell">
-                    <div class="role-icon-wrap">
-                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            </div>
+
+            <div class="boardroom-card fade-up">
+                <span class="boardroom-card-label">The Boardroom Bottom Line</span>
+                <p>"If you do not see the transaction, you are the pipeline for your <strong>competitor's intelligence</strong>. Phase 2 gives you the data sovereignty to see the threat, intercept the loan, and reclaim the <strong>total relationship</strong> of the households in your market."</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- WHO WE SERVE -->
+    <div class="section-wrap">
+        <div class="section-header fade-up">
+            <span class="section-label">Who We Serve</span>
+            <h2 class="section-title">Built for the Executives Who Own the P&amp;L</h2>
+            <p class="section-body">Purpose-built for community and regional bank leadership — not a generic CRM add-on.</p>
+        </div>
+        <div class="roles-row fade-up">
+            <div class="role-cell">
+                <div class="role-icon-wrap">
+                    <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+                </div>
+                <div class="role-title">Bank President &amp; CEO</div>
+                <div class="role-sub">Strategic visibility into whole-bank revenue leakage</div>
+            </div>
+            <div class="role-cell">
+                <div class="role-icon-wrap">
+                    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div class="role-title">Head of Mortgage Lending</div>
+                <div class="role-sub">Identify and recapture volume before it closes elsewhere</div>
+            </div>
+            <div class="role-cell">
+                <div class="role-icon-wrap">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div class="role-title">Relationship Managers</div>
+                <div class="role-sub">Outreach powered by verified client intelligence</div>
+            </div>
+            <div class="role-cell">
+                <div class="role-icon-wrap">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                </div>
+                <div class="role-title">Chief Lending Officer</div>
+                <div class="role-sub">Portfolio defense strategy rooted in data, not instinct</div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- FOUNDER -->
+    <div id="about" class="bg-alt">
+        <div class="section-wrap">
+            <div class="section-header fade-up" style="margin-bottom: 3rem;">
+                <span class="section-label">The Founder</span>
+                <h2 class="section-title">Forged at the Teller Window</h2>
+            </div>
+            <div class="founder-grid fade-up">
+                <div class="founder-img-wrap">
+                    <img src="./founder.jpg" alt="Matt Thompson — Founder, Bank Defender" class="founder-img">
+                </div>
+                <div class="founder-content">
+                    <h2>Matt Thompson</h2>
+                    <p>Matt Thompson's conviction was forged at the teller window of <strong>Citizens Bank</strong>. He watched firsthand as a community's financial health rose and fell with the health of its local bank's balance sheet — and saw exactly which revenue was walking out the door to national giants.</p>
+                    <p>Today, Matt leverages <strong>7 years of Google Cloud expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking. Bank Defender is the infrastructure he wished existed when he was behind that counter.</p>
+                    <p>Every feature, every data model, every alert is designed with one question in mind: <em style="color: var(--text-secondary);">"What does this Relationship Manager need to make one great call tomorrow morning?"</em></p>
+                    <div class="founder-badges">
+                        <span class="badge">Google Cloud · 7 Years</span>
+                        <span class="badge">Community Banking</span>
+                        <span class="badge">Engineered in Nashville</span>
                     </div>
-                    <div class="role-title">Chief Lending Officer</div>
-                    <div class="role-sub">Portfolio defense strategy rooted in data, not instinct</div>
                 </div>
             </div>
         </div>
@@ -1046,42 +1231,17 @@
 
     <hr class="gold-rule">
 
-    <div id="about" class="section-wrap">
-        <div class="section-header fade-up" style="margin-bottom: 3rem;">
-            <span class="section-label">The Founder</span>
-            <h2 class="section-title">Forged at the Teller Window</h2>
-        </div>
-        <div class="founder-grid fade-up">
-            <div class="founder-img-wrap">
-                <img src="./founder.jpg" alt="Matt Thompson — Founder, Bank Defender" class="founder-img">
-            </div>
-            <div class="founder-content">
-                <h2>Matt Thompson</h2>
-                <p>Matt Thompson's conviction was forged at the teller window of <strong>Citizens Bank</strong>. He watched firsthand as a community's financial health rose and fell with the health of its local bank's balance sheet — and saw exactly which revenue was walking out the door to national giants.</p>
-                <p>Today, Matt leverages <strong>7 years of Google Cloud expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking. Bank Defender is the infrastructure he wished existed when he was behind that counter.</p>
-                <p>Every feature, every data model, every alert is designed with one question in mind: <em style="color: var(--text-secondary);">"What does this Relationship Manager need to make one great call tomorrow morning?"</em></p>
-                <div class="founder-badges">
-                    <span class="badge">Google Cloud · 7 Years</span>
-                    <span class="badge">Community Banking</span>
-                    <span class="badge">Engineered in Nashville</span>
-                </div>
-            </div>
-        </div>
+    <!-- CTA -->
+    <div class="cta-block fade-up">
+        <h2>Find Out What's Leaving<br>Your <em>Balance Sheet</em></h2>
+        <p>A confidential 30-minute assessment reveals the outflow patterns and behavioral signals specific to your institution — no obligation, no generic benchmarks. Covered by NDA.</p>
+        <a href="#contact" class="btn-primary">Request Confidential Assessment</a>
+        <div class="cta-fine">Assessments are institution-specific. All submissions treated as strictly confidential.</div>
     </div>
 
     <hr class="gold-rule">
 
-    <div class="bg-alt">
-        <div class="cta-block fade-up">
-            <h2>Find Out What's Leaving<br>Your <em>Balance Sheet</em></h2>
-            <p>A confidential 30-minute assessment reveals the outflow patterns and behavioral signals specific to your institution — no obligation, no generic benchmarks. Covered by NDA.</p>
-            <a href="#contact" class="btn-primary">Request Confidential Assessment</a>
-            <div class="cta-fine">Assessments are institution-specific. All submissions treated as strictly confidential.</div>
-        </div>
-    </div>
-
-    <hr class="gold-rule">
-
+    <!-- CONTACT FORM -->
     <div id="contact" class="section-wrap">
         <div class="contact-section fade-up">
             <div class="contact-header">
@@ -1122,6 +1282,7 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <div class="footer-logo">The Bank<span>Defender</span></div>
         <div class="footer-meta">© 2026 · B2B Fintech Infrastructure · Nashville, TN</div>
