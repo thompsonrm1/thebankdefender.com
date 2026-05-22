@@ -3,161 +3,1106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank Defender | Institutional Asset Protection</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Bank Defender | Institutional Intelligence for Community Banks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #10b981; /* Electric Emerald */
-            --dark-navy: #0a192f; 
-            --slate: #1e293b;
-            --white: #ffffff; 
-            --text-muted: #94a3b8;
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-dim: rgba(201,168,76,0.18);
+            --gold-faint: rgba(201,168,76,0.08);
+            --bg: #08080e;
+            --bg-panel: #0d0d14;
+            --bg-card: #111118;
+            --text-primary: #f0ece4;
+            --text-secondary: #b8a898;
+            --text-muted: #6a6260;
+            --text-faint: #3a3230;
+            --border: rgba(201,168,76,0.15);
+            --border-soft: rgba(201,168,76,0.08);
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--white); background: #020617; line-height: 1.6; }
 
-        header {
-            height: 90vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
-                        url('./nashville.jpg');
-            background-size: cover;
-            background-position: center;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ─── NOISE OVERLAY ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* ─── TYPOGRAPHY ─── */
+        .playfair { font-family: 'Playfair Display', Georgia, serif; }
+        .gold { color: var(--gold); }
+        .gold-light { color: var(--gold-light); }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 3rem;
+            border-bottom: 0.5px solid var(--border);
+            background: rgba(8,8,14,0.92);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .nav-logo span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gold);
+            border: 0.5px solid var(--gold);
+            padding: 0.6rem 1.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .nav-cta:hover { background: var(--gold-faint); }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 20px;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -2px; }
-        .hero-content p { font-size: 1.5rem; max-width: 850px; margin: 0 auto; color: var(--text-muted); font-weight: 300; }
-        .hero-content span { color: var(--primary); }
-
-        section { padding: 100px 10%; max-width: 1300px; margin: 0 auto; }
-        
-        .mission-card { 
-            background: var(--dark-navy); 
-            padding: 60px; 
-            border-radius: 12px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
-            margin-top: -120px; 
-            position: relative; 
-            z-index: 10; 
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-top: 8px solid var(--primary);
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('./nashville.jpg') center/cover no-repeat;
+            opacity: 0.07;
+            z-index: 0;
+        }
+        .hero-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center top, rgba(201,168,76,0.06) 0%, transparent 60%),
+                        linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
+            z-index: 1;
         }
 
-        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--white); }
-        .accent-text { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 10px; display: block; }
-
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
-        .service-item { 
-            background: rgba(30, 41, 59, 0.5); 
-            padding: 45px; 
-            border-radius: 12px; 
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s;
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 860px;
+            margin: 0 auto;
         }
-        .service-item:hover { border-color: var(--primary); transform: translateY(-10px); background: rgba(16, 185, 129, 0.05); }
-        .service-item h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.6rem; }
-        .service-item p { color: var(--text-muted); }
 
-        .founder-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; margin-top: 80px; }
-        .founder-img { width: 100%; border-radius: 12px; filter: grayscale(20%); border: 1px solid rgba(16, 185, 129, 0.4); }
-
-        .contact-wrap { background: var(--dark-navy); padding: 80px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.2); margin-top: 60px; }
-        .form-input { 
-            width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 6px; 
-            border: 1px solid #334155; background: #0f172a; color: white; outline: none;
+        .hero-logo-wrap {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
         }
-        .form-input:focus { border-color: var(--primary); }
-        .btn-submit { 
-            background: var(--primary); color: var(--dark-navy); padding: 22px; 
-            width: 100%; border: none; border-radius: 6px; font-weight: 800; 
-            cursor: pointer; transition: 0.3s; font-size: 1.1rem;
+        .hero-logo-wrap img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 20px rgba(201,168,76,0.2));
         }
-        .btn-submit:hover { background: #0ea171; transform: scale(1.01); }
 
-        footer { text-align: center; padding: 60px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid rgba(255,255,255,0.05); }
-        
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            .founder-grid { grid-template-columns: 1fr; }
-            .mission-card { padding: 30px; }
+        .hero-eyebrow {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .hero-eyebrow::before, .hero-eyebrow::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 0.5px;
+            background: var(--gold);
+            opacity: 0.6;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 66px);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 660px;
+            margin: 0 auto 2.75rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #08080e;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 1rem 2.25rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-primary);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 1rem 2.25rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 0.5px solid rgba(232,224,208,0.2);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            transition: border-color 0.2s;
+        }
+        .btn-ghost:hover { border-color: rgba(232,224,208,0.45); }
+
+        /* ─── TICKER ─── */
+        .ticker {
+            border-top: 0.5px solid var(--border-soft);
+            border-bottom: 0.5px solid var(--border-soft);
+            padding: 0.75rem 0;
+            overflow: hidden;
+            background: var(--bg-panel);
+        }
+        .ticker-track {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker-scroll 32s linear infinite;
+        }
+        .ticker-item {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .ticker-item::after {
+            content: '◆';
+            font-size: 6px;
+            color: var(--gold);
+            opacity: 0.6;
+        }
+        @keyframes ticker-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ─── STATS ─── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 0.5px solid var(--border);
+            max-width: 920px;
+            margin: 4rem auto;
+        }
+        .stat-cell {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-right: 0.5px solid var(--border);
+        }
+        .stat-cell:last-child { border-right: none; }
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.02em;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            line-height: 1.5;
+            max-width: 180px;
+            margin: 0 auto;
+        }
+
+        /* ─── SECTION SCAFFOLDING ─── */
+        .section-wrap {
+            padding: 5rem 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .section-body {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.75;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        /* ─── PROBLEM PANELS ─── */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+        .problem-panel {
+            background: var(--bg-panel);
+            padding: 2.75rem 2rem;
+            transition: background 0.25s;
+        }
+        .problem-panel:hover { background: #111118; }
+
+        .problem-icon {
+            width: 44px;
+            height: 44px;
+            border: 0.5px solid rgba(201,168,76,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.75rem;
+            font-size: 20px;
+            color: var(--gold);
+        }
+        .problem-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.85rem;
+            line-height: 1.3;
+        }
+        .problem-body {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+        .problem-metric {
+            margin-top: 1.75rem;
+            padding-top: 1.25rem;
+            border-top: 0.5px solid var(--border-soft);
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            font-weight: 500;
+        }
+
+        /* ─── MANDATE CARD ─── */
+        .mandate-card {
+            background: var(--bg-panel);
+            border: 0.5px solid var(--border);
+            border-top: 2px solid var(--gold);
+            padding: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .mandate-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 200px;
+            color: var(--gold);
+            opacity: 0.04;
+            position: absolute;
+            top: -2rem;
+            left: 1.5rem;
+            line-height: 1;
+            pointer-events: none;
+        }
+        .mandate-card p {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        .mandate-card strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ─── INTELLIGENCE GRID ─── */
+        .intel-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: var(--border-soft);
+        }
+        .intel-card {
+            background: var(--bg-panel);
+            padding: 2.25rem 2rem;
+        }
+        .intel-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: rgba(201,168,76,0.15);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .intel-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.02em;
+        }
+        .intel-body {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ─── WHO WE SERVE ─── */
+        .roles-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 0.5px solid var(--border);
+        }
+        .role-cell {
+            padding: 2rem 1.5rem;
+            border-right: 0.5px solid var(--border);
+            text-align: center;
+        }
+        .role-cell:last-child { border-right: none; }
+        .role-icon-wrap {
+            width: 40px;
+            height: 40px;
+            border: 0.5px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        .role-icon-wrap svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .role-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+        .role-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ─── FOUNDER ─── */
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .founder-img-wrap {
+            position: relative;
+        }
+        .founder-img-wrap::after {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            right: -1rem;
+            bottom: -1rem;
+            border: 0.5px solid var(--border);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .founder-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            position: relative;
+            z-index: 1;
+            filter: grayscale(30%) contrast(1.05);
+        }
+        .founder-content { padding-top: 0.5rem; }
+        .founder-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        .founder-content p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        .founder-content strong { color: var(--text-secondary); font-weight: 500; }
+
+        .founder-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        .badge {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 0.5px solid var(--border);
+            padding: 0.45rem 0.9rem;
+            background: var(--gold-faint);
+        }
+
+        /* ─── DIVIDER ─── */
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .gold-divider-line { flex: 1; height: 0.5px; background: var(--border); }
+        .gold-divider-diamond {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+
+        /* ─── CONTACT / FORM ─── */
+        .contact-section {
+            background: var(--bg-panel);
+            border: 0.5px solid var(--border);
+            border-top: 1px solid rgba(201,168,76,0.4);
+            padding: 4rem 3.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .contact-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .contact-header p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .form-group { margin-bottom: 1rem; }
+        .form-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: rgba(0,0,0,0.3);
+            border: 0.5px solid rgba(201,168,76,0.15);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-input::placeholder { color: var(--text-faint); }
+        .form-input:focus { border-color: rgba(201,168,76,0.5); }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--gold);
+            color: #08080e;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 1.1rem 2rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            margin-top: 0.5rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+        .form-note {
+            text-align: center;
+            margin-top: 1.25rem;
+            font-size: 11px;
+            color: var(--text-faint);
+            letter-spacing: 0.04em;
+        }
+
+        /* ─── CTA BLOCK ─── */
+        .cta-block {
+            text-align: center;
+            padding: 5rem 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .cta-block h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        .cta-block p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .cta-fine {
+            margin-top: 1.25rem;
+            font-size: 11px;
+            color: var(--text-faint);
+            letter-spacing: 0.04em;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            border-top: 0.5px solid var(--border-soft);
+            padding: 2.5rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-faint);
+        }
+        .footer-logo span { color: var(--gold); opacity: 0.6; }
+        .footer-meta {
+            font-size: 11px;
+            color: var(--text-faint);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* ─── SECTION BG ALTERNATION ─── */
+        .bg-alt { background: var(--bg-panel); }
+
+        /* ─── HORIZONTAL RULE ─── */
+        hr.gold-rule {
+            border: none;
+            border-top: 0.5px solid var(--border);
+            margin: 0;
+        }
+
+        /* ─── FADE-IN ANIMATION ─── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .section-wrap { padding: 4rem 1.5rem; }
+            .problem-grid { grid-template-columns: 1fr; }
+            .intel-grid { grid-template-columns: 1fr; }
+            .roles-row { grid-template-columns: 1fr 1fr; }
+            .role-cell:nth-child(2) { border-right: none; }
+            .role-cell:nth-child(3) { border-right: 0.5px solid var(--border); border-top: 0.5px solid var(--border); }
+            .role-cell:nth-child(4) { border-top: 0.5px solid var(--border); border-right: none; }
+            .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .founder-img { height: 340px; }
+            .founder-img-wrap::after { display: none; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-cell { border-right: none; border-bottom: 0.5px solid var(--border); }
+            .stat-cell:last-child { border-bottom: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-section { padding: 2.5rem 1.5rem; }
+            footer { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 36px; }
+            .hero-sub { font-size: 16px; }
+            .mandate-card { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="hero-content">
-<img src="./logo.png?v=9" alt="Bank Defender Logo" style="height: 140px; width: auto; margin-bottom: 35px; object-fit: contain; background-color: #ffffff; padding: 10px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">            <span class="accent-text">Engineered in Nashville</span>
-            <h1>Bank <span>Defender</span></h1>
-            <p>Defending the Balance Sheet. Reclaiming Regional Assets from National Giants.</p>
+    <!-- ═══════════════════════════════════════
+         NAV
+    ═══════════════════════════════════════ -->
+    <nav>
+        <a href="#" class="nav-logo">The Bank<span>Defender</span></a>
+        <ul class="nav-links">
+            <li><a href="#problem">The Problem</a></li>
+            <li><a href="#intelligence">Intelligence</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Request Assessment</a>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-inner">
+            <div class="hero-logo-wrap">
+                <img src="./logo.png?v=9" alt="Bank Defender">
+            </div>
+            <div class="hero-eyebrow">Institutional Intelligence · Engineered in Nashville</div>
+            <h1>
+                Your Deposits Are Here.<br>
+                Their <em>Profits</em> Are Not.
+            </h1>
+            <p class="hero-sub">
+                Your highest-value clients keep their balances in your vault — while routing their most profitable activities to Chase, Bank of America, and CMG. Bank Defender surfaces exactly where that revenue is going, and gives your team the intelligence to bring it home.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Request a Confidential Assessment</a>
+                <a href="#problem" class="btn-ghost">See How It Works</a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section>
-            <div class="mission-card">
-                <span class="accent-text">The Institutional Mandate</span>
-                <h2>Defending the "Whale"</h2>
-                <p>Your highest-value clients keep their deposits in your vault, but send their most profitable activities—<strong>mortgages, auto loans, and interchange fees</strong>—to Wall Street. Bank Defender provides the <strong>Institutional Intelligence</strong> needed to identify these outflows in real-time and provide a surgical, data-backed reason for your members to bring their capital home.</p>
-            </div>
+    <!-- ═══════════════════════════════════════
+         TICKER
+    ═══════════════════════════════════════ -->
+    <div class="ticker">
+        <div class="ticker-track">
+            <span class="ticker-item">Mortgage Outflow Intelligence</span>
+            <span class="ticker-item">Real-Time Deposit Leakage Detection</span>
+            <span class="ticker-item">Interchange Revenue Recovery</span>
+            <span class="ticker-item">Auto Loan Recapture</span>
+            <span class="ticker-item">Relationship Manager Enablement</span>
+            <span class="ticker-item">Balance Sheet Defense</span>
+            <span class="ticker-item">HNW Portfolio Retention</span>
+            <span class="ticker-item">Mortgage Outflow Intelligence</span>
+            <span class="ticker-item">Real-Time Deposit Leakage Detection</span>
+            <span class="ticker-item">Interchange Revenue Recovery</span>
+            <span class="ticker-item">Auto Loan Recapture</span>
+            <span class="ticker-item">Relationship Manager Enablement</span>
+            <span class="ticker-item">Balance Sheet Defense</span>
+            <span class="ticker-item">HNW Portfolio Retention</span>
+        </div>
+    </div>
 
-            <div class="service-grid">
-                <div class="service-item">
-                    <h3>The Leakage Radar</h3>
-                    <p>Powered by <strong>Plaid + BigQuery</strong>. We alert your team the moment a HNW client triggers a $4,000+ mortgage payment or refinance check to a national competitor.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Precision Incentives</h3>
-                    <p>Geofenced, automated rewards at Nashville landmarks. We make national "points" programs mathematically irrational for local leaders.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Sovereign Infrastructure</h3>
-                    <p>Built on <strong>Google Cloud</strong>. Every partner receives an isolated, hardened GCP Project. Zero-friction core integration.</p>
-                </div>
+    <!-- ═══════════════════════════════════════
+         STATS
+    ═══════════════════════════════════════ -->
+    <div class="section-wrap" style="padding-top: 3rem; padding-bottom: 1rem;">
+        <div class="stats-grid fade-up">
+            <div class="stat-cell">
+                <div class="stat-num">68%</div>
+                <div class="stat-label">Of mortgage volume lost to national lenders by community banks annually</div>
             </div>
-
-            <div class="founder-grid" id="about">
-                <img src="./founder.jpg" alt="Matt Thompson - Founder" class="founder-img">
-                <div>
-                    <span class="accent-text">The Founder</span>
-                    <h2>Founding Vision: Matt Thompson</h2>
-                    <p>Matt Thompson’s perspective was forged as a <strong>Bank Teller for Citizens Bank</strong>. He saw that a community’s health is directly tied to the health of its local bank's balance sheet.</p>
-                    <br>
-                    <p>Today, Matt leverages <strong>7 years of Google Cloud Expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking.</p>
-                </div>
+            <div class="stat-cell">
+                <div class="stat-num">$2.4T</div>
+                <div class="stat-label">In deposits held at community banks whose owners lend elsewhere</div>
             </div>
-        </section>
+            <div class="stat-cell">
+                <div class="stat-num">3–5×</div>
+                <div class="stat-label">Revenue uplift when a depositor becomes a full-relationship client</div>
+            </div>
+        </div>
+    </div>
 
-        <section id="contact">
-            <div class="contact-wrap">
-                <h2 style="text-align: center; color: white;">Request an Institutional Audit</h2>
-                <p style="text-align: center; margin-bottom: 40px; color: var(--text-muted);">Quantify your leakage. Protect your Whale portfolio. Reclaim your region.</p>
-                
-                <form action="https://formspree.io/f/xreareww" method="POST">
-                    <div style="display: flex; gap: 15px;">
-                        <input type="text" name="first_name" placeholder="First Name" class="form-input" required>
-                        <input type="text" name="last_name" placeholder="Last Name" class="form-input" required>
+    <hr class="gold-rule">
+
+    <!-- ═══════════════════════════════════════
+         THE PROBLEM
+    ═══════════════════════════════════════ -->
+    <div id="problem" class="section-wrap">
+        <div class="section-header fade-up">
+            <span class="section-label">The Leakage Problem</span>
+            <h2 class="section-title">Where Your P&L Is Bleeding</h2>
+            <p class="section-body">Your balance sheet tells one story. Your clients' full financial lives tell another. The gap between them is your opportunity.</p>
+        </div>
+        <div class="problem-grid fade-up">
+            <div class="problem-panel">
+                <div class="problem-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div class="problem-title">Mortgage Origination Outflow</div>
+                <div class="problem-body">Your best depositors are closing mortgages with Chase and CMG right now. You hold their payroll. You know their net worth. Yet their largest asset sits on someone else's book.</div>
+                <div class="problem-metric">↑ Avg. $380K loan per relationship lost</div>
+            </div>
+            <div class="problem-panel">
+                <div class="problem-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h6v13H7v-5"/><path d="M11 13v-3"/></svg>
+                </div>
+                <div class="problem-title">Auto &amp; Consumer Loan Flight</div>
+                <div class="problem-body">National captive lenders and fintechs are winning auto loans from clients who consider your institution their primary bank. The relationship exists — the product doesn't.</div>
+                <div class="problem-metric">↑ 3–4 auto loans per year per 1,000 clients</div>
+            </div>
+            <div class="problem-panel">
+                <div class="problem-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div class="problem-title">Interchange &amp; Card Revenue Loss</div>
+                <div class="problem-body">Premium card spending routes through Amex and Chase Sapphire. Your clients are earning points with your competitors using the income you verified.</div>
+                <div class="problem-metric">↑ $1,200+ annual interchange per household</div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ═══════════════════════════════════════
+         MANDATE CARD
+    ═══════════════════════════════════════ -->
+    <div class="bg-alt">
+        <div class="section-wrap">
+            <div class="section-header fade-up">
+                <span class="section-label">The Institutional Mandate</span>
+                <h2 class="section-title">Defending the Whale</h2>
+            </div>
+            <div class="mandate-card fade-up">
+                <p>Your highest-value clients keep their deposits in your vault, but send their most profitable activities — <strong>mortgages, auto loans, and interchange fees</strong> — to Wall Street. Bank Defender provides the <strong>Institutional Intelligence</strong> needed to identify these outflows in real-time and deliver a surgical, data-backed reason for your clients to bring their capital home — where it was always meant to be.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ═══════════════════════════════════════
+         INTELLIGENCE
+    ═══════════════════════════════════════ -->
+    <div id="intelligence" class="section-wrap">
+        <div class="section-header fade-up">
+            <span class="section-label">The Intelligence Layer</span>
+            <h2 class="section-title">Surgical. Data-Backed. Actionable.</h2>
+            <p class="section-body">Bank Defender doesn't generate reports. It surfaces the precise intelligence your Relationship Managers need to have the right conversation, at the right moment.</p>
+        </div>
+        <div class="intel-grid fade-up">
+            <div class="intel-card">
+                <div class="intel-num">01</div>
+                <div class="intel-title">Real-Time Outflow Detection</div>
+                <div class="intel-body">Identify the exact moment a client's mortgage, auto loan, or card activity signals engagement with a competing institution — before the relationship migrates permanently.</div>
+            </div>
+            <div class="intel-card">
+                <div class="intel-num">02</div>
+                <div class="intel-title">Relationship Scoring &amp; Prioritization</div>
+                <div class="intel-body">Rank your entire book of business by recapture potential. Know which clients represent the highest-value recovery opportunity and why, down to the product level.</div>
+            </div>
+            <div class="intel-card">
+                <div class="intel-num">03</div>
+                <div class="intel-title">Relationship Manager Enablement</div>
+                <div class="intel-body">Your RMs receive structured, data-backed talking points — not hunches. Every outreach is grounded in a specific, verifiable financial insight about that individual client.</div>
+            </div>
+            <div class="intel-card">
+                <div class="intel-num">04</div>
+                <div class="intel-title">Balance Sheet Intelligence Reporting</div>
+                <div class="intel-body">Quantify the revenue you are recovering — and what remains at risk — in the language your board and examiners already understand. Built on Google Cloud infrastructure.</div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ═══════════════════════════════════════
+         WHO WE SERVE
+    ═══════════════════════════════════════ -->
+    <div class="bg-alt">
+        <div class="section-wrap">
+            <div class="section-header fade-up">
+                <span class="section-label">Who We Serve</span>
+                <h2 class="section-title">Built for the Executives Who Own the P&L</h2>
+                <p class="section-body">Purpose-built for community and regional bank leadership — not a generic CRM add-on.</p>
+            </div>
+            <div class="roles-row fade-up">
+                <div class="role-cell">
+                    <div class="role-icon-wrap">
+                        <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
                     </div>
-                    <input type="email" name="email" placeholder="Professional Email" class="form-input" required>
-                    <input type="text" name="title" placeholder="Job Title" class="form-input" required>
-                    <input type="text" name="institution_name" placeholder="Financial Institution Name" class="form-input" required>
-                    <input type="text" name="address" placeholder="HQ City, State" class="form-input" required>
-
-                    <button type="submit" class="btn-submit">Submit Inquiry</button>
-                </form>
+                    <div class="role-title">Bank President &amp; CEO</div>
+                    <div class="role-sub">Strategic visibility into whole-bank revenue leakage</div>
+                </div>
+                <div class="role-cell">
+                    <div class="role-icon-wrap">
+                        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="role-title">Head of Mortgage Lending</div>
+                    <div class="role-sub">Identify and recapture volume before it closes elsewhere</div>
+                </div>
+                <div class="role-cell">
+                    <div class="role-icon-wrap">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <div class="role-title">Relationship Managers</div>
+                    <div class="role-sub">Outreach powered by verified client intelligence</div>
+                </div>
+                <div class="role-cell">
+                    <div class="role-icon-wrap">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    </div>
+                    <div class="role-title">Chief Lending Officer</div>
+                    <div class="role-sub">Portfolio defense strategy rooted in data, not instinct</div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
+    <hr class="gold-rule">
+
+    <!-- ═══════════════════════════════════════
+         FOUNDER
+    ═══════════════════════════════════════ -->
+    <div id="about" class="section-wrap">
+        <div class="section-header fade-up" style="margin-bottom: 3rem;">
+            <span class="section-label">The Founder</span>
+            <h2 class="section-title">Forged at the Teller Window</h2>
+        </div>
+        <div class="founder-grid fade-up">
+            <div class="founder-img-wrap">
+                <img src="./founder.jpg" alt="Matt Thompson — Founder, Bank Defender" class="founder-img">
+            </div>
+            <div class="founder-content">
+                <h2>Matt Thompson</h2>
+                <p>Matt Thompson's conviction was forged at the teller window of <strong>Citizens Bank</strong>. He watched firsthand as a community's financial health rose and fell with the health of its local bank's balance sheet — and saw exactly which revenue was walking out the door to national giants.</p>
+                <p>Today, Matt leverages <strong>7 years of Google Cloud expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking. Bank Defender is the infrastructure he wished existed when he was behind that counter.</p>
+                <p>Every feature, every data model, every alert is designed with one question in mind: <em style="color: var(--text-secondary);">"What does this Relationship Manager need to make one great call tomorrow morning?"</em></p>
+                <div class="founder-badges">
+                    <span class="badge">Google Cloud · 7 Years</span>
+                    <span class="badge">Community Banking</span>
+                    <span class="badge">Engineered in Nashville</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ═══════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════ -->
+    <div class="bg-alt">
+        <div class="cta-block fade-up">
+            <h2>Find Out What's Leaving<br>Your <em>Balance Sheet</em></h2>
+            <p>A confidential 30-minute assessment reveals the outflow patterns specific to your institution — no obligation, no generic benchmarks.</p>
+            <a href="#contact" class="btn-primary">Request Confidential Assessment</a>
+            <div class="cta-fine">Assessments are institution-specific and covered by NDA.</div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ═══════════════════════════════════════
+         CONTACT / FORM
+    ═══════════════════════════════════════ -->
+    <div id="contact" class="section-wrap">
+        <div class="contact-section fade-up">
+            <div class="contact-header">
+                <span class="section-label" style="margin-bottom: 0.75rem;">Request an Assessment</span>
+                <h2>Request an Institutional Audit</h2>
+                <p>Quantify your leakage. Protect your Whale portfolio. Reclaim your region.</p>
+            </div>
+            <form action="https://formspree.io/f/xreareww" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" name="first_name" placeholder="James" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" name="last_name" placeholder="Morrison" class="form-input" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Professional Email</label>
+                    <input type="email" name="email" placeholder="j.morrison@firstnationalbank.com" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Job Title</label>
+                    <input type="text" name="title" placeholder="President & CEO" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Financial Institution</label>
+                    <input type="text" name="institution_name" placeholder="First National Bank" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">HQ City, State</label>
+                    <input type="text" name="address" placeholder="Nashville, TN" class="form-input" required>
+                </div>
+                <button type="submit" class="btn-submit">Submit Inquiry →</button>
+                <div class="form-note">All submissions are treated as strictly confidential.</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
     <footer>
-        &copy; 2026 BANK DEFENDER | B2B FINTECH INFRASTRUCTURE | NASHVILLE, TN
+        <div class="footer-logo">The Bank<span>Defender</span></div>
+        <div class="footer-meta">© 2026 · B2B Fintech Infrastructure · Nashville, TN</div>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
