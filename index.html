@@ -508,7 +508,7 @@
             line-height: 1.65;
         }
 
-        /* PHASE BLOCK — used for Phase 1 & Phase 2 headers */
+        /* PHASE BLOCK */
         .phase-band {
             display: flex;
             align-items: center;
@@ -617,6 +617,130 @@
             line-height: 1.8;
         }
         .boardroom-card strong { color: var(--text-primary); font-weight: 500; font-style: normal; }
+
+        /* ─── TRUST & INFRASTRUCTURE (NEW SECTION) ─── */
+        .trust-section {
+            background: var(--bg);
+        }
+        .trust-section .section-wrap {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .trust-pillars {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
+            margin-top: 3rem;
+        }
+        .trust-pillar {
+            background: var(--bg-panel);
+            padding: 2.5rem 2.25rem;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.25s;
+        }
+        .trust-pillar:hover { background: #111118; }
+        .trust-pillar-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+        .trust-pillar-icon {
+            width: 42px;
+            height: 42px;
+            border: 0.5px solid rgba(201,168,76,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+        .trust-pillar-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .trust-pillar-title-group {}
+        .trust-pillar-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.35rem;
+            opacity: 0.8;
+        }
+        .trust-pillar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.25;
+        }
+        .trust-pillar-body {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+        .trust-cert-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .trust-cert {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 0.5px solid var(--border);
+            padding: 0.3rem 0.65rem;
+            background: var(--gold-faint);
+            white-space: nowrap;
+        }
+        /* No-PII accent bar */
+        .trust-pillar.accent-nopii {
+            border-top: 2px solid var(--gold);
+        }
+        /* Trust bottom band */
+        .trust-bottom-band {
+            margin-top: 2.5rem;
+            background: rgba(201,168,76,0.04);
+            border: 0.5px solid var(--border);
+            border-left: 3px solid var(--gold);
+            padding: 1.75rem 2.25rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .trust-bottom-band-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .trust-bottom-band-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+        .trust-bottom-band-text strong {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
 
         /* WHO WE SERVE */
         .roles-row {
@@ -874,6 +998,7 @@
             .intel-grid { grid-template-columns: 1fr; }
             .deliverables-grid { grid-template-columns: 1fr; }
             .sovereignty-grid { grid-template-columns: 1fr; }
+            .trust-pillars { grid-template-columns: 1fr; }
             .roles-row { grid-template-columns: 1fr 1fr; }
             .role-cell:nth-child(2) { border-right: none; }
             .role-cell:nth-child(3) { border-right: 0.5px solid var(--border); border-top: 0.5px solid var(--border); }
@@ -889,6 +1014,7 @@
             footer { flex-direction: column; text-align: center; }
             .asymmetry-band { padding: 2rem 1.5rem; }
             .boardroom-card { padding: 2rem 1.5rem; }
+            .trust-bottom-band { flex-direction: column; gap: 0.75rem; }
         }
         @media (max-width: 600px) {
             .hero h1 { font-size: 36px; }
@@ -906,6 +1032,7 @@
             <li><a href="#problem">The Problem</a></li>
             <li><a href="#intelligence">Intelligence</a></li>
             <li><a href="#sovereignty">Data Sovereignty</a></li>
+            <li><a href="#trust">Security</a></li>
             <li><a href="#about">About</a></li>
         </ul>
         <a href="#contact" class="nav-cta">Request Assessment</a>
@@ -1157,6 +1284,120 @@
                 <span class="boardroom-card-label">The Boardroom Bottom Line</span>
                 <p>"If you do not see the transaction, you are the pipeline for your <strong>competitor's intelligence</strong>. Phase 2 gives you the data sovereignty to see the threat, intercept the loan, and reclaim the <strong>total relationship</strong> of the households in your market."</p>
             </div>
+        </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ─── TRUST & INFRASTRUCTURE (NEW SECTION) ─── -->
+    <div id="trust" class="trust-section">
+        <div class="section-wrap">
+            <div class="section-header fade-up">
+                <span class="section-label">Trust &amp; Infrastructure</span>
+                <h2 class="section-title">Built for the CIO's Due Diligence,<br>Not Just the CEO's Ambition.</h2>
+                <p class="section-body">Every institution that engages Bank Defender will face an internal technology and compliance review. We designed our architecture to pass it — before you even ask.</p>
+            </div>
+
+            <div class="trust-pillars fade-up">
+
+                <!-- Pillar 1: Inherited Trust -->
+                <div class="trust-pillar">
+                    <div class="trust-pillar-header">
+                        <div class="trust-pillar-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="trust-pillar-title-group">
+                            <span class="trust-pillar-tag">Inherited Trust</span>
+                            <div class="trust-pillar-title">Powered by Google Cloud</div>
+                        </div>
+                    </div>
+                    <div class="trust-pillar-body">
+                        Bank Defender is architected natively on Google Cloud Platform. We do not build custom, untested security layers. Our application inherits the same physical, network, and compliance infrastructure used by the world's largest financial institutions — including the certifications your examiners already recognize.
+                    </div>
+                    <div class="trust-cert-row">
+                        <span class="trust-cert">SOC 1 / 2 / 3</span>
+                        <span class="trust-cert">ISO/IEC 27001</span>
+                        <span class="trust-cert">PCI-DSS</span>
+                        <span class="trust-cert">FedRAMP</span>
+                        <span class="trust-cert">FFIEC Aligned</span>
+                        <span class="trust-cert">GLBA Compliant</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Data Isolation -->
+                <div class="trust-pillar">
+                    <div class="trust-pillar-header">
+                        <div class="trust-pillar-icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                        </div>
+                        <div class="trust-pillar-title-group">
+                            <span class="trust-pillar-tag">Data Isolation</span>
+                            <div class="trust-pillar-title">Single-Tenant Architecture</div>
+                        </div>
+                    </div>
+                    <div class="trust-pillar-body">
+                        Your institution's data never shares infrastructure with another bank. Every partner is allocated its own dedicated, isolated Google Cloud Project — a hard boundary enforced at the resource level, not the application level. Your data lives in its own private silo, encrypted at rest and in transit by default, governed by Google's native Identity and Access Management protocols.
+                    </div>
+                    <div class="trust-cert-row">
+                        <span class="trust-cert">Dedicated GCP Project</span>
+                        <span class="trust-cert">Google IAM</span>
+                        <span class="trust-cert">Encrypted at Rest &amp; Transit</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: No-PII / CSV Only -->
+                <div class="trust-pillar accent-nopii">
+                    <div class="trust-pillar-header">
+                        <div class="trust-pillar-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                        </div>
+                        <div class="trust-pillar-title-group">
+                            <span class="trust-pillar-tag">Zero Integration Risk</span>
+                            <div class="trust-pillar-title">No Core System Access. Ever.</div>
+                        </div>
+                    </div>
+                    <div class="trust-pillar-body">
+                        Bank Defender requires no connection to your core banking system, no API tunnels, and no access to your internal production environment. Your team exports a standard transaction log as a flat CSV, strips all customer PII internally, and drops the anonymized file into your secure Cloud Storage bucket. Raw files are automatically deleted within 30 days of processing. We retain only aggregated trend metrics — nothing traceable to an individual.
+                    </div>
+                    <div class="trust-cert-row">
+                        <span class="trust-cert">CSV-Only Intake</span>
+                        <span class="trust-cert">No PII Transmitted</span>
+                        <span class="trust-cert">Auto-Deleted in 30 Days</span>
+                        <span class="trust-cert">Offline Utility</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Continuous Monitoring -->
+                <div class="trust-pillar">
+                    <div class="trust-pillar-header">
+                        <div class="trust-pillar-icon">
+                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div class="trust-pillar-title-group">
+                            <span class="trust-pillar-tag">Continuous Monitoring</span>
+                            <div class="trust-pillar-title">Always-On Threat Detection</div>
+                        </div>
+                    </div>
+                    <div class="trust-pillar-body">
+                        Our entire cloud perimeter is monitored around the clock by Google Cloud Security Command Center — Google's native threat detection engine — continuously scanning for vulnerabilities, misconfigurations, and compliance deviations. Operational controls are mapped and verified through Vanta, keeping our security posture hardened and audit-ready at all times.
+                    </div>
+                    <div class="trust-cert-row">
+                        <span class="trust-cert">GCP Security Command Center</span>
+                        <span class="trust-cert">24/7 Monitoring</span>
+                        <span class="trust-cert">Vanta Automated Controls</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Trust Bottom Band -->
+            <div class="trust-bottom-band fade-up">
+                <span class="trust-bottom-band-label">The CIO Bottom Line</span>
+                <div class="trust-bottom-band-text">
+                    Bank Defender is a <strong>completely disconnected, offline utility</strong>. There is no tunnel into your network, no persistent connection to your core, and no customer-identifiable data leaving your perimeter. Your upcoming regulatory exam is unaffected. Your vendor risk team has a clean answer. Your examiners have documentation they already trust.
+                </div>
+            </div>
+
         </div>
     </div>
 
