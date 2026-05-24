@@ -725,7 +725,7 @@
         }
         .trust-bottom-band-text strong { color: var(--text-secondary); font-weight: 500; }
 
-        /* ── CFO LEAKAGE CALCULATOR ── */
+        /* CFO LEAKAGE CALCULATOR */
         .calc-section { background: var(--bg-panel); }
         .calc-outer {
             background: var(--bg-panel);
@@ -785,7 +785,6 @@
         .calc-input:focus { border-color: rgba(201,168,76,0.6); }
         .calc-input::placeholder { color: var(--text-faint); }
 
-        /* Preset buttons */
         .calc-presets {
             display: flex;
             gap: 0.5rem;
@@ -819,7 +818,6 @@
             background: var(--gold-faint);
         }
 
-        /* Results grid */
         .calc-results {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -864,7 +862,6 @@
             letter-spacing: 0.06em;
         }
 
-        /* Total row */
         .calc-total-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1500,7 +1497,6 @@
 
             <div class="calc-outer fade-up">
 
-                <!-- Preset Bands -->
                 <div style="margin-bottom: 1.25rem;">
                     <span class="calc-preset-label">Quick Select:</span>
                     <div class="calc-presets" style="display:inline-flex; flex-wrap:wrap; gap:0.5rem; margin-left:0.5rem;">
@@ -1511,7 +1507,6 @@
                     </div>
                 </div>
 
-                <!-- Inputs -->
                 <div class="calc-inputs">
                     <div class="calc-input-group">
                         <label for="totalAssets">Total Asset Size</label>
@@ -1531,7 +1526,6 @@
                     </div>
                 </div>
 
-                <!-- Result Cells -->
                 <div class="calc-results">
                     <div class="calc-result-cell">
                         <span class="calc-result-product">Mortgage</span>
@@ -1559,7 +1553,6 @@
                     </div>
                 </div>
 
-                <!-- Total Row -->
                 <div class="calc-total-row">
                     <div class="calc-total-cell annual">
                         <span class="calc-total-period">Total Annual Leakage</span>
@@ -1750,11 +1743,16 @@
                 </div>
                 <div class="founder-content">
                     <h2>Matt Thompson</h2>
-                    <p>Matt Thompson's conviction was forged at the teller window of <strong>Citizens Bank</strong>. He watched firsthand as a community's financial health rose and fell with the health of its local bank's balance sheet — and saw exactly which revenue was walking out the door to national giants.</p>
-                    <p>Today, Matt leverages <strong>7 years of Google Cloud expertise</strong> to bridge the gap between elite enterprise data science and the community values of American banking. Bank Defender is the infrastructure he wished existed when he was behind that counter.</p>
-                    <p>Every feature, every data model, every alert is designed with one question in mind: <em style="color: var(--text-secondary);">"What does this Relationship Manager need to make one great call tomorrow morning?"</em></p>
+                    <p>Matt Thompson's conviction was forged at the teller window of <strong>Citizens Bank</strong> — where he watched firsthand as a community's financial health rose and fell with the health of its local bank's balance sheet, and saw exactly which relationships were quietly walking out the door to national giants.</p>
+                    <p>Today, Matt operates daily inside the <strong>Google Cloud ecosystem</strong> — recognized as a <strong>2024 Google Cloud Sales Partner All-Star</strong> for elite performance within one of the most competitive sales environments in the world. He works directly with institutional decision-makers to architect the kind of data infrastructure that national financial players take for granted. He knows what that technology looks like from the inside — and exactly what community banks are missing because they don't have it.</p>
+                    <p>That experience translates directly — Bank Defender runs on the same Google Cloud infrastructure that powers the world's largest financial institutions, purpose-built to give community banks the data intelligence their national competitors have had for years.</p>
+                    <p>His background in <strong>NCAA Division I athletics</strong> instilled the same competitive discipline he brings to every client engagement: preparation, precision, and an intolerance for leaving opportunity on the field.</p>
+                    <p>Bank Defender is the infrastructure he wished existed when he was behind that counter.</p>
+                    <p><em style="color: var(--text-secondary);">"Every feature, every data model, every alert is designed around one question: What does this Relationship Manager need to make one great call tomorrow morning?"</em></p>
                     <div class="founder-badges">
-                        <span class="badge">Google Cloud · 7 Years</span>
+                        <span class="badge">2024 Google Cloud All-Star</span>
+                        <span class="badge">Google Cloud Ecosystem</span>
+                        <span class="badge">NCAA Division I Athlete</span>
                         <span class="badge">Community Banking</span>
                         <span class="badge">Engineered in Nashville</span>
                     </div>
@@ -1823,7 +1821,7 @@
     </footer>
 
     <script>
-        /* ── FADE-UP OBSERVER ── */
+        /* FADE-UP OBSERVER */
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) e.target.classList.add('visible');
@@ -1831,7 +1829,7 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-        /* ── CALCULATOR ── */
+        /* CALCULATOR */
         function formatDollars(n) {
             if (n === null || isNaN(n)) return '—';
             if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
